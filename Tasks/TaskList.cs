@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Tasks.Data;
+using Tasks.Console;
 
 namespace Tasks
 {
@@ -11,8 +12,6 @@ namespace Tasks
 
 		private readonly TaskListData taskListData = new TaskListData();
 		private readonly IConsole console;
-
-		private long lastId = 0;
 
 		public static void Main(string[] args)
 		{
@@ -136,11 +135,6 @@ namespace Tasks
 		private void Error(string command)
 		{
 			console.WriteLine("I don't know what the command \"{0}\" is.", command);
-		}
-
-		private long NextId()
-		{
-			return ++lastId;
 		}
 	}
 }
