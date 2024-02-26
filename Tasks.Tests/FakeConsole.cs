@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.IO.Pipes;
 using System.Threading;
+using Tasks.Console;
 
 namespace Tasks
 {

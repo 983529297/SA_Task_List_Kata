@@ -1,9 +1,10 @@
 ﻿using System;
+using Tasks.Console;
 using Tasks.Data;
 
 namespace Tasks.Service
 {
-    public class TaskListService
+    public class TaskListService : ITaskListService
     {
 		private const string QUIT = "quit";
 
@@ -93,7 +94,7 @@ namespace Tasks.Service
 		{
 			if (!taskListData.CheckProject(project))
 			{
-				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
+				System.Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
 			taskListData.AddTask(project, description);
