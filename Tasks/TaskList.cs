@@ -9,9 +9,6 @@ namespace Tasks
 {
 	public sealed class TaskList
 	{
-		private const string QUIT = "quit";
-
-		private readonly TaskListData taskListData = new TaskListData();
 		private IConsole console;
 
 		public static void Main(string[] args)
@@ -26,7 +23,8 @@ namespace Tasks
 
 		public void Run()
 		{
-			new TaskListService(ref this.console).Run();
+			ITaskListService taskListService = new TaskListService(ref this.console);
+			taskListService.Run();
 		}
 	}
 }
