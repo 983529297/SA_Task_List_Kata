@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Tasks.Data;
 
 namespace Tasks
 {
@@ -8,7 +9,7 @@ namespace Tasks
 	{
 		private const string QUIT = "quit";
 
-		private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
+		private readonly TaskListData taskListData = new TaskListData();
 		private readonly IConsole console;
 
 		private long lastId = 0;
@@ -63,7 +64,7 @@ namespace Tasks
 
 		private void Show()
 		{
-			foreach (var project in tasks) {
+			foreach (var project in taskListData.GetTaskList()) {
 				console.WriteLine(project.Key);
 				foreach (var task in project.Value) {
 					console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
@@ -86,17 +87,17 @@ namespace Tasks
 
 		private void AddProject(string name)
 		{
-			tasks[name] = new List<Task>();
+			taskListData.AddProject(name);
 		}
 
 		private void AddTask(string project, string description)
 		{
-			if (!tasks.TryGetValue(project, out IList<Task> projectTasks))
+			if (!taskListData.CheckProject(project))
 			{
 				Console.WriteLine("Could not find a project with the name \"{0}\".", project);
 				return;
 			}
-			projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false });
+			taskListData.AddTask(project, description);
 		}
 
 		private void Check(string idString)
@@ -112,16 +113,13 @@ namespace Tasks
 		private void SetDone(string idString, bool done)
 		{
 			int id = int.Parse(idString);
-			var identifiedTask = tasks
-				.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
-				.Where(task => task != null)
-				.FirstOrDefault();
+			taskListData.findTaskById(id, out Tasks.Data.Task identifiedTask); ;
 			if (identifiedTask == null) {
 				console.WriteLine("Could not find a task with an ID of {0}.", id);
 				return;
 			}
 
-			identifiedTask.Done = done;
+			taskListData.SetDone(done, ref identifiedTask);
 		}
 
 		private void Help()

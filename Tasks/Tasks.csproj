@@ -5,4 +5,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>Tasks.TaskList</StartupObject>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tasks.Data\Tasks.Data.csproj" />
+  </ItemGroup>
 </Project>

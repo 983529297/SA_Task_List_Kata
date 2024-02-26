@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Data
 {
-    class Task
+    public class Task
     {
         public long Id { get; set; }
 
