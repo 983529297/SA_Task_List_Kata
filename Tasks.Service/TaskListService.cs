@@ -8,9 +8,7 @@ namespace Tasks.Service
     public class TaskListService : ITaskListService
     {
 		private const string QUIT = "quit";
-
-        private readonly IConsole console;
-		private readonly TaskListData taskListData = new TaskListData();
+        private IConsole console;
 
         public TaskListService(ref IConsole console)
         {
@@ -19,7 +17,7 @@ namespace Tasks.Service
 
 		public void Run()
 		{
-			IExecuteImp executeImp = new ExecuteImp(console);
+			IExecuteImp executeImp = new ExecuteImp(ref console);
 			while (true)
 			{
 				console.Write("> ");

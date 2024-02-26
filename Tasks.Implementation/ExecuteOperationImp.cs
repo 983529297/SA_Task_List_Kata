@@ -6,11 +6,11 @@ using Tasks.Console;
 
 namespace Tasks.Implementation
 {
-    public class ExecuteOperationImp
+    public class ExecuteOperationImp : IExecuteOperationImp
     {
 		private readonly IConsole console;
-		private readonly TaskListData taskListData;
-		public ExecuteOperationImp(IConsole console, TaskListData taskListData)
+		private readonly ITaskListData taskListData;
+		public ExecuteOperationImp(ref IConsole console, ref ITaskListData taskListData)
         {
 			this.console = console;
 			this.taskListData = taskListData;

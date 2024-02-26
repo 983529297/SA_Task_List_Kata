@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Tasks.Data
 {
-    public class TaskListData
+    public class TaskListData : ITaskListData
     {
         private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
         private int Id = 0;
