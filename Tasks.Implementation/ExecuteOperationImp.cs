@@ -9,11 +9,10 @@ namespace Tasks.Implementation
     public class ExecuteOperationImp : IExecuteOperationImp
     {
 		private IConsole console;
-		private ITaskListData taskListData;
-		public ExecuteOperationImp(ref IConsole console, ref ITaskListData taskListData)
+		private ITaskListData taskListData = new TaskListData();
+		public ExecuteOperationImp(ref IConsole console)
         {
 			this.console = console;
-			this.taskListData = taskListData;
         }
 
 		public void Show()

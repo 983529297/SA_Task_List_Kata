@@ -8,12 +8,11 @@ namespace Tasks.Implementation
 {
     public class ExecuteImp : IExecuteImp
     {
-		private readonly ITaskListData taskListData = new TaskListData();
 		private readonly IExecuteOperationImp executeOperationImp;
 
 		public ExecuteImp(ref IConsole console)
         {
-			executeOperationImp = new ExecuteOperationImp(ref console, ref taskListData);
+			executeOperationImp = new ExecuteOperationImp(ref console);
         }
 
 		public void Execute(String commandLine)
