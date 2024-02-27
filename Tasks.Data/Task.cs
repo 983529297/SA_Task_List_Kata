@@ -11,5 +11,7 @@ namespace Tasks.Data
         public string Description { get; set; }
 
         public bool Done { get; set; }
+
+        public DateTime deadLine { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Tasks.ExecuteImp
     {
 		private IConsole console;
 		private ITaskListData taskListData = new TaskListData();
+
 		public ExecuteOperationImp(ref IConsole console)
         {
 			this.console = console;
