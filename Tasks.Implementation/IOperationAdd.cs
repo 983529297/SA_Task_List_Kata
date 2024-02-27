@@ -6,8 +6,8 @@ using Tasks.Data;
 
 namespace Tasks.Implementation
 {
-    public interface IOperationShow
+    public interface IOperationAdd
     {
-        void Show();
+        void Add(String commandLine);
     }
 }

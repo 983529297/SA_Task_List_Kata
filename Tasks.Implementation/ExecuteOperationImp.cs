@@ -8,8 +8,8 @@ namespace Tasks.Implementation
 {
     public class ExecuteOperationImp : IExecuteOperationImp
     {
-		private readonly IConsole console;
-		private readonly ITaskListData taskListData;
+		private IConsole console;
+		private ITaskListData taskListData;
 		public ExecuteOperationImp(ref IConsole console, ref ITaskListData taskListData)
         {
 			this.console = console;
@@ -18,38 +18,14 @@ namespace Tasks.Implementation
 
 		public void Show()
 		{
-			IOperationShow operationShow = new OperationShow();
-			operationShow.Show(this.console, this.taskListData);
+			IOperationShow operationShow = new OperationShow(ref this.console, ref this.taskListData);
+			operationShow.Show();
 		}
 
 		public void Add(string commandLine)
 		{
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var subcommand = subcommandRest[0];
-			if (subcommand == "project")
-			{
-				AddProject(subcommandRest[1]);
-			}
-			else if (subcommand == "task")
-			{
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
-				AddTask(projectTask[0], projectTask[1]);
-			}
-		}
-
-		private void AddProject(string name)
-		{
-			taskListData.AddProject(name);
-		}
-
-		private void AddTask(string project, string description)
-		{
-			if (!taskListData.CheckProject(project))
-			{
-				System.Console.WriteLine("Could not find a project with the name \"{0}\".", project);
-				return;
-			}
-			taskListData.AddTask(project, description);
+			IOperationAdd operationAdd = new OperationAdd(this.console, this.taskListData);
+			operationAdd.Add(commandLine);
 		}
 
 		public void Check(string idString)

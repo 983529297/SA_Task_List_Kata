@@ -8,7 +8,16 @@ namespace Tasks.Implementation
 {
     public class OperationShow : IOperationShow
     {
-        public void Show(IConsole console, ITaskListData taskListData)
+		private readonly IConsole console;
+		private readonly ITaskListData taskListData;
+
+		public OperationShow(ref IConsole console, ref ITaskListData taskListData)
+        {
+			this.console = console;
+			this.taskListData = taskListData;
+        }
+
+        public void Show()
         {
 			foreach (var project in taskListData.GetTaskList())
 			{
