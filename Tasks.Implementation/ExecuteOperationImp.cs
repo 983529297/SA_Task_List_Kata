@@ -48,7 +48,8 @@ namespace Tasks.Implementation
 
 		public void Error(string command)
 		{
-			console.WriteLine("I don't know what the command \"{0}\" is.", command);
+			IOperationError operationError = new OperationError(this.console);
+			operationError.Error(command);
 		}
 	}
 }
