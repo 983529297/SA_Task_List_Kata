@@ -18,15 +18,8 @@ namespace Tasks.Implementation
 
 		public void Show()
 		{
-			foreach (var project in taskListData.GetTaskList())
-			{
-				console.WriteLine(project.Key);
-				foreach (var task in project.Value)
-				{
-					console.WriteLine("    [{0}] {1}: {2}", (task.Done ? 'x' : ' '), task.Id, task.Description);
-				}
-				console.WriteLine();
-			}
+			IOperationShow operationShow = new OperationShow();
+			operationShow.Show(this.console, this.taskListData);
 		}
 
 		public void Add(string commandLine)
