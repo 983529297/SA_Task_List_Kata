@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tasks.Console;
 
-namespace Tasks.Implementation
+namespace Tasks.OperationImp
 {
     public class OperationHelp : IOperationHelp
     {

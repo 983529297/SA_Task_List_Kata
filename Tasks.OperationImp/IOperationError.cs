@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Implementation
+namespace Tasks.OperationImp
 {
     public interface IOperationError
     {

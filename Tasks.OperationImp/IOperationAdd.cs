@@ -4,7 +4,7 @@ using System.Text;
 using Tasks.Console;
 using Tasks.Data;
 
-namespace Tasks.Implementation
+namespace Tasks.OperationImp
 {
     public interface IOperationAdd
     {
