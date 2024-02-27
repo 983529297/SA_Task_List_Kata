@@ -16,9 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Service", "Tasks.Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Console", "Tasks.Console\Tasks.Console.csproj", "{0AA1A59B-508D-46A5-98E5-42A84EB4CB60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Implementation", "Tasks.Implementation\Tasks.Implementation.csproj", "{F0818BC7-D93C-4A5D-B911-92B58688BD2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.ExecuteImp", "Tasks.Implementation\Tasks.ExecuteImp.csproj", "{F0818BC7-D93C-4A5D-B911-92B58688BD2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.OperationImp", "Tasks.OperationImp\Tasks.OperationImp.csproj", "{B2DDAB42-4966-489B-A74C-D7D790101D51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.OperationImp", "Tasks.OperationImp\Tasks.OperationImp.csproj", "{B2DDAB42-4966-489B-A74C-D7D790101D51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

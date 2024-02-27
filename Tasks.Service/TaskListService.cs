@@ -1,7 +1,7 @@
 ﻿using System;
 using Tasks.Console;
 using Tasks.Data;
-using Tasks.Implementation;
+using Tasks.ExecuteImp;
 
 namespace Tasks.Service
 {
@@ -17,7 +17,7 @@ namespace Tasks.Service
 
 		public void Run()
 		{
-			IExecuteImp executeImp = new ExecuteImp(ref console);
+            IExecuteImp executeImp = new ExecuteImp.ExecuteImp(ref console);
 			while (true)
 			{
 				console.Write("> ");

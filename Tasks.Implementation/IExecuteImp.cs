@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tasks.Implementation
+namespace Tasks.ExecuteImp
 {
     public interface IExecuteImp
     {
