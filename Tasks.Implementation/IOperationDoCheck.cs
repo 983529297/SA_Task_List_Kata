@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Tasks.Implementation
 {
-    public interface IDoCheck
+    public interface IOperationDoCheck
     {
+        void SetDone(String idString, bool done);
     }
 }

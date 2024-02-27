@@ -30,36 +30,20 @@ namespace Tasks.Implementation
 
 		public void Check(string idString)
 		{
-			SetDone(idString, true);
+			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console, this.taskListData);
+			operationDoCheck.SetDone(idString, true);
 		}
 
 		public void Uncheck(string idString)
 		{
-			SetDone(idString, false);
-		}
-
-		private void SetDone(string idString, bool done)
-		{
-			int id = int.Parse(idString);
-			taskListData.findTaskById(id, out Tasks.Data.Task identifiedTask); ;
-			if (identifiedTask == null)
-			{
-				console.WriteLine("Could not find a task with an ID of {0}.", id);
-				return;
-			}
-
-			taskListData.SetDone(done, ref identifiedTask);
+			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console, this.taskListData);
+			operationDoCheck.SetDone(idString, false);
 		}
 
 		public void Help()
 		{
-			console.WriteLine("Commands:");
-			console.WriteLine("  show");
-			console.WriteLine("  add project <project name>");
-			console.WriteLine("  add task <project name> <task description>");
-			console.WriteLine("  check <task ID>");
-			console.WriteLine("  uncheck <task ID>");
-			console.WriteLine();
+			IOperationHelp operationHelp = new OperationHelp(this.console);
+			operationHelp.Help();
 		}
 
 		public void Error(string command)
