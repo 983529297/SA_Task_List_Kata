@@ -15,7 +15,7 @@ namespace Tasks.ExecuteImp
 			executeOperationImp = new ExecuteOperationImp(ref console);
         }
 
-		public void Execute(String commandLine)
+		public void Execute(string commandLine)
         {
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
@@ -23,6 +23,9 @@ namespace Tasks.ExecuteImp
 			{
 				case "show":
 					executeOperationImp.Show();
+					break;
+				case "deadline":
+					executeOperationImp.Deadline(commandRest[1]);
 					break;
 				case "add":
 					executeOperationImp.Add(commandRest[1]);

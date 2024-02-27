@@ -14,12 +14,12 @@ namespace Tasks.Data
             return tasks;
         }
 
-        public void AddProject(String name)
+        public void AddProject(string name)
         {
             tasks[name] = new List<Task>();
         }
 
-        public bool CheckProject(String name)
+        public bool CheckProject(string name)
         {
             if (tasks.ContainsKey(name))
                 return true;
@@ -27,7 +27,7 @@ namespace Tasks.Data
                 return false;
         }
 
-        public void AddTask(String project, String description)
+        public void AddTask(string project, string description)
         {
             if (tasks.TryGetValue(project, out IList<Task> projectTasks))
             {
@@ -40,6 +40,10 @@ namespace Tasks.Data
             identifiedTask = tasks.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
                 .Where(task => task != null)
                 .FirstOrDefault();
+        }
+        public void SetDeadline(DateTime deadline, ref Task task)
+        {
+            task.deadline = deadline;
         }
 
         public void SetDone(bool done, ref Task task)

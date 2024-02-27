@@ -7,10 +7,11 @@ namespace Tasks.ExecuteImp
     public interface IExecuteOperationImp
     {
         void Show();
-        void Add(String commandRest);
-        void Check(String commandRest);
-        void Uncheck(String commandRest);
+        void Deadline(string commandRest);
+        void Add(string commandRest);
+        void Check(string commandRest);
+        void Uncheck(string commandRest);
         void Help();
-        void Error(String command);
+        void Error(string command);
     }
 }

@@ -23,6 +23,12 @@ namespace Tasks.ExecuteImp
 			operationShow.Show();
 		}
 
+		public void Deadline(string commandLine)
+        {
+			IOperationDeadline operationDeadline = new OperationDeadline(ref this.console, ref this.taskListData);
+			operationDeadline.Deadline(commandLine);
+        }
+
 		public void Add(string commandLine)
 		{
 			IOperationAdd operationAdd = new OperationAdd(this.console, this.taskListData);

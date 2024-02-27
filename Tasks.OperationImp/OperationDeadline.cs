@@ -6,28 +6,31 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDoCheck : IOperationDoCheck
+    public class OperationDeadline : IOperationDeadline
     {
-        private readonly IConsole console;
-        private readonly ITaskListData taskListData;
+        private IConsole console;
+        private ITaskListData taskListData;
 
-        public OperationDoCheck(IConsole console, ITaskListData taskListData)
+        public OperationDeadline(ref IConsole console, ref ITaskListData taskListData)
         {
             this.console = console;
             this.taskListData = taskListData;
         }
 
-        public void SetDone(string idString, bool done)
+        public void Deadline(string commandLine)
         {
+            var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
+            var idString = subcommandRest[0];
+            var deadlineString = subcommandRest[1];
             int id = int.Parse(idString);
+            DateTime deadline = DateTime.Parse(deadlineString);
             taskListData.findTaskById(id, out Task identifiedTask); ;
             if (identifiedTask == null)
             {
                 console.WriteLine("Could not find a task with an ID of {0}.", id);
                 return;
             }
-
-            taskListData.SetDone(done, ref identifiedTask);
+            taskListData.SetDeadline(deadline, ref identifiedTask);
         }
     }
 }

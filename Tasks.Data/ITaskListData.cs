@@ -8,13 +8,15 @@ namespace Tasks.Data
     {
         IDictionary<string, IList<Task>> GetTaskList();
 
-        void AddProject(String name);
+        void AddProject(string name);
 
-        bool CheckProject(String name);
+        bool CheckProject(string name);
 
-        void AddTask(String project, String description);
+        void AddTask(string project, string description);
 
         void findTaskById(int id, out Task identifiedTask);
+
+        void SetDeadline(DateTime deadline, ref Task identifiedTask);
 
         void SetDone(bool done, ref Task task);
     }
