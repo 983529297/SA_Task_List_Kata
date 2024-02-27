@@ -7,7 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
     <ProjectReference Include="..\Tasks.Data\Tasks.Data.csproj" />
-    <ProjectReference Include="..\Tasks.Implementation\Tasks.ExecuteImp.csproj" />
+    <ProjectReference Include="..\Tasks.ExecuteImp\Tasks.ExecuteImp.csproj" />
   </ItemGroup>
 
 </Project>
