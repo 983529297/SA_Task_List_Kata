@@ -11,14 +11,14 @@ namespace Tasks.OperationImp
 
         public IList<string> Show()
         {
-            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTaskList();
+            IDictionary<string, IList<TaskListArg>> todayTasks = taskListData.GetTaskList();
             IList<string> showString = new List<string>();
             foreach (var project in todayTasks)
             {
                 showString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3] == "" ? "" : " " + taskAttribute[3]));
+                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description, taskAttribute.deadline == "" ? "" : " " + taskAttribute.deadline));
                 }
                 showString.Add("");
             }
