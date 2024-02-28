@@ -108,12 +108,37 @@ namespace Tasks
 				""
 			);
 
+			Execute("delete 1");
+			Execute("show");
+			ReadLines(
+				"secrets",
+				"    [ ] 2: Destroy all humans.",
+				"",
+				"training",
+				"    [x] 3: Four Elements of Simple Design",
+				"    [ ] 4: SOLID2023-02-28",
+				"    [x] 5: Coupling and Cohesion",
+				"    [x] 6: Primitive Obsession",
+				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 8: Interaction-Driven Design",
+				""
+			);
+
+			Execute("today");
+			ReadLines(
+				"training",
+				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				""
+			);
+
 			Execute("help");
 			ReadLines(
 				"Commands:",
 				"  show",
 				"  add project <project name>",
 				"  add task <project name> <task description>",
+				"  deadline <task ID> <yyyy-MM-dd>",
+				"  today",
 				"  check <task ID>",
 				"  uncheck <task ID>",
 				""

@@ -13,13 +13,7 @@ namespace Tasks.OperationImp
         public void SetDone(string idString, bool done)
         {
             int id = int.Parse(idString);
-            taskListData.findTaskById(id, out Task identifiedTask); ;
-            if (identifiedTask == null)
-            {
-                throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
-            }
-
-            taskListData.SetDone(done, ref identifiedTask);
+            taskListData.SetDone(id, done);
         }
     }
 }

@@ -107,14 +107,20 @@ namespace Tasks.Data
             identifiedTask = tasks.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
                 .Where(task => task != null)
                 .FirstOrDefault();
+            if (identifiedTask == null)
+            {
+                throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
+            }
         }
-        public void SetDeadline(DateTime deadline, ref Task task)
+        public void SetDeadline(int id, DateTime deadline)
         {
+            findTaskById(id, out Task task);
             task.deadline = deadline;
         }
 
-        public void SetDone(bool done, ref Task task)
+        public void SetDone(int id, bool done)
         {
+            findTaskById(id, out Task task);
             task.Done = done;
         }
 

@@ -17,12 +17,7 @@ namespace Tasks.OperationImp
             var deadlineString = subcommandRest[1];
             int id = int.Parse(idString);
             DateTime deadline = DateTime.Parse(deadlineString);
-            taskListData.findTaskById(id, out Task identifiedTask); ;
-            if (identifiedTask == null)
-            {
-                throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
-            }
-            taskListData.SetDeadline(deadline, ref identifiedTask);
+            taskListData.SetDeadline(id, deadline);
         }
     }
 }
