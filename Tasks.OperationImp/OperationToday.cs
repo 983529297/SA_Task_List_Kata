@@ -18,15 +18,15 @@ namespace Tasks.OperationImp
 
         public void Today()
         {
-            foreach (var project in taskListData.GetTaskList())
+            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTaskByDate(DateTime.Now);
+            foreach (var project in todayTasks)
             {
                 console.WriteLine(project.Key);
-                foreach (var task in project.Value)
+                foreach (var taskAttribute in project.Value)
                 {
-                    if (task.deadline.HasValue && task.deadline.Value.Date == DateTime.Now.Date)
-                    console.WriteLine("    [{0}] {1}: {2}{3}", (task.Done ? 'x' : ' '), task.Id, task.Description, task.deadline.HasValue ? " " + task.deadline.Value.ToString("yyyy-MM-dd") : "");
+                    console.WriteLine("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3]);
                 }
-                console.WriteLine();
+				console.WriteLine();
             }
         }
     }

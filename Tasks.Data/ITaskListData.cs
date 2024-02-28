@@ -8,6 +8,7 @@ namespace Tasks.Data
     {
         IDictionary<string, IList<Task>> GetTaskList();
 
+        IDictionary<string, IList<IList<string>>> GetTaskByDate(DateTime deadline);
         void AddProject(string name);
 
         bool CheckProject(string name);

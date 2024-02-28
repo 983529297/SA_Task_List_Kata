@@ -37,6 +37,26 @@ namespace Tasks.Data
             return tasks;
         }
 
+        public IDictionary<string, IList<IList<string>>> GetTaskByDate(DateTime deadline)
+        {
+            IDictionary<string, IList<IList<string>>> todayTasks = new Dictionary<string, IList<IList<string>>>();
+            foreach (var project in tasks)
+            {
+                foreach (var task in project.Value)
+                {
+                    if (task.deadline.HasValue && task.deadline.Value.Date == DateTime.Now.Date)
+                    {
+                        if (!todayTasks.ContainsKey(project.Key))
+                        {
+                            todayTasks[project.Key] = new List<IList<string>>();
+                        }
+                        todayTasks[project.Key].Add(new List<string> { task.Done ? "X" : " ", task.Id.ToString(), task.Description, task.deadline.Value.ToString("yyyy-MM-dd") });
+                    }
+                }
+            }
+            return todayTasks;
+        }
+
         public void AddProject(string name)
         {
             tasks[name] = new List<Task>();
