@@ -28,6 +28,12 @@ namespace Tasks.ExecuteImp
 			operationDeadline.Deadline(commandLine);
         }
 
+		public void Today()
+        {
+			IOperationToday operationToday = new OperationToday(ref this.console);
+			operationToday.Today();
+        }
+
 		public void Add(string commandLine)
 		{
 			IOperationAdd operationAdd = new OperationAdd(this.console);

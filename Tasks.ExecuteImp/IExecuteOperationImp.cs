@@ -8,6 +8,7 @@ namespace Tasks.ExecuteImp
     {
         void Show();
         void Deadline(string commandRest);
+        void Today();
         void Add(string commandRest);
         void Check(string commandRest);
         void Uncheck(string commandRest);

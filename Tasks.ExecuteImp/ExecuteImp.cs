@@ -27,6 +27,9 @@ namespace Tasks.ExecuteImp
 				case "deadline":
 					executeOperationImp.Deadline(commandRest[1]);
 					break;
+				case "today":
+					executeOperationImp.Today();
+					break;
 				case "add":
 					executeOperationImp.Add(commandRest[1]);
 					break;
