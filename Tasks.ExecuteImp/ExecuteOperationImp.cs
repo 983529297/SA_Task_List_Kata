@@ -33,6 +33,12 @@ namespace Tasks.ExecuteImp
 			operationAdd.Add(commandLine);
 		}
 
+		public void Delete(string idString)
+        {
+			IOperationDelete operationDelete = new OperationDelete();
+			operationDelete.Delete(idString);
+        }
+
 		public void Check(string idString)
 		{
 			IOperationDoCheck operationDoCheck = new OperationDoCheck();

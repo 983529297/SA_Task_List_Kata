@@ -13,6 +13,8 @@ namespace Tasks.Data
 
         bool CheckProject(string name);
 
+        void DeleteTask(int id);
+
         void AddTask(string project, string description);
 
         void findTaskById(int id, out Task identifiedTask);

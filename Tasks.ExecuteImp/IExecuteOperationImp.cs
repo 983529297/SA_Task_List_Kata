@@ -10,6 +10,7 @@ namespace Tasks.ExecuteImp
         void Deadline(string commandRest);
         IList<string> Today();
         void Add(string commandRest);
+        void Delete(string commandRest);
         void Check(string commandRest);
         void Uncheck(string commandRest);
         IList<string> Help();

@@ -69,6 +69,18 @@ namespace Tasks.Data
             return todayTasks;
         }
 
+        public void DeleteTask(int id)
+        {
+            findTaskById(id, out Task task);
+            foreach (var taskList in tasks)
+            {
+                if (taskList.Value.Contains(task))
+                {
+                    taskList.Value.Remove(task);
+                }
+            }
+        }
+
         public void AddProject(string name)
         {
             tasks[name] = new List<Task>();

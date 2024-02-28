@@ -26,6 +26,9 @@ namespace Tasks.ExecuteImp
 				case "add":
 					executeOperationImp.Add(commandRest[1]);
 					break;
+				case "delete":
+					executeOperationImp.Delete(commandRest[1]);
+					break;
 				case "check":
 					executeOperationImp.Check(commandRest[1]);
 					break;
