@@ -10,12 +10,11 @@ namespace Tasks.OperationImp
     {
 
 		private readonly IConsole console;
-		private readonly ITaskListData taskListData;
+		private readonly ITaskListData taskListData = TaskListData.Instance;
 
-		public OperationAdd(IConsole console, ITaskListData taskListData)
+		public OperationAdd(IConsole console)
         {
 			this.console = console;
-			this.taskListData = taskListData;
         }
 
 		public void Add(String commandLine)

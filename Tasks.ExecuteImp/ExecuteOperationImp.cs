@@ -10,7 +10,6 @@ namespace Tasks.ExecuteImp
     public class ExecuteOperationImp : IExecuteOperationImp
     {
 		private IConsole console;
-		private ITaskListData taskListData = new TaskListData();
 
 		public ExecuteOperationImp(ref IConsole console)
         {
@@ -19,31 +18,31 @@ namespace Tasks.ExecuteImp
 
 		public void Show()
 		{
-			IOperationShow operationShow = new OperationShow(ref this.console, ref this.taskListData);
+			IOperationShow operationShow = new OperationShow(ref this.console);
 			operationShow.Show();
 		}
 
 		public void Deadline(string commandLine)
         {
-			IOperationDeadline operationDeadline = new OperationDeadline(ref this.console, ref this.taskListData);
+			IOperationDeadline operationDeadline = new OperationDeadline(ref this.console);
 			operationDeadline.Deadline(commandLine);
         }
 
 		public void Add(string commandLine)
 		{
-			IOperationAdd operationAdd = new OperationAdd(this.console, this.taskListData);
+			IOperationAdd operationAdd = new OperationAdd(this.console);
 			operationAdd.Add(commandLine);
 		}
 
 		public void Check(string idString)
 		{
-			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console, this.taskListData);
+			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console);
 			operationDoCheck.SetDone(idString, true);
 		}
 
 		public void Uncheck(string idString)
 		{
-			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console, this.taskListData);
+			IOperationDoCheck operationDoCheck = new OperationDoCheck(this.console);
 			operationDoCheck.SetDone(idString, false);
 		}
 

@@ -9,12 +9,11 @@ namespace Tasks.OperationImp
     public class OperationShow : IOperationShow
     {
 		private readonly IConsole console;
-		private readonly ITaskListData taskListData;
+		private readonly ITaskListData taskListData = TaskListData.Instance;
 
-		public OperationShow(ref IConsole console, ref ITaskListData taskListData)
+		public OperationShow(ref IConsole console)
         {
 			this.console = console;
-			this.taskListData = taskListData;
         }
 
         public void Show()
@@ -24,7 +23,7 @@ namespace Tasks.OperationImp
 				console.WriteLine(project.Key);
 				foreach (var task in project.Value)
 				{
-					console.WriteLine("    [{0}] {1}: {2} {3}", (task.Done ? 'x' : ' '), task.Id, task.Description, task.deadline.HasValue ? task.deadline.Value.ToString("yyyy-MM-dd") : "");
+					console.WriteLine("    [{0}] {1}: {2}{3}", (task.Done ? 'x' : ' '), task.Id, task.Description, task.deadline.HasValue ? " " + task.deadline.Value.ToString("yyyy-MM-dd") : "");
 				}
 				console.WriteLine();
 			}

@@ -9,12 +9,11 @@ namespace Tasks.OperationImp
     public class OperationDeadline : IOperationDeadline
     {
         private IConsole console;
-        private ITaskListData taskListData;
+        private ITaskListData taskListData = TaskListData.Instance;
 
-        public OperationDeadline(ref IConsole console, ref ITaskListData taskListData)
+        public OperationDeadline(ref IConsole console)
         {
             this.console = console;
-            this.taskListData = taskListData;
         }
 
         public void Deadline(string commandLine)

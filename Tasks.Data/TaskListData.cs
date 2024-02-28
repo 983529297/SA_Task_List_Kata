@@ -8,6 +8,29 @@ namespace Tasks.Data
     {
         private readonly IDictionary<string, IList<Task>> tasks = new Dictionary<string, IList<Task>>();
         private int Id = 0;
+        private static readonly object lockObject = new object();
+        private static TaskListData instance = null;
+
+        private TaskListData() { }
+
+        public static TaskListData Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (lockObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new TaskListData();
+
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
 
         public IDictionary<string, IList<Task>> GetTaskList()
         {

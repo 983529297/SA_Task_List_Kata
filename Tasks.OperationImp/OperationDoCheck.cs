@@ -9,12 +9,11 @@ namespace Tasks.OperationImp
     public class OperationDoCheck : IOperationDoCheck
     {
         private readonly IConsole console;
-        private readonly ITaskListData taskListData;
+        private readonly ITaskListData taskListData = TaskListData.Instance;
 
-        public OperationDoCheck(IConsole console, ITaskListData taskListData)
+        public OperationDoCheck(IConsole console)
         {
             this.console = console;
-            this.taskListData = taskListData;
         }
 
         public void SetDone(string idString, bool done)
