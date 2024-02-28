@@ -18,7 +18,7 @@ namespace Tasks.OperationImp
 
         public void Today()
         {
-            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTaskByDate(DateTime.Now);
+            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
             foreach (var project in todayTasks)
             {
                 console.WriteLine(project.Key);

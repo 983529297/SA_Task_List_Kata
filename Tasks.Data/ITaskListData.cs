@@ -6,9 +6,9 @@ namespace Tasks.Data
 {
     public interface ITaskListData
     {
-        IDictionary<string, IList<Task>> GetTaskList();
+        IDictionary<string, IList<IList<string>>> GetTaskList();
 
-        IDictionary<string, IList<IList<string>>> GetTaskByDate(DateTime deadline);
+        IDictionary<string, IList<IList<string>>> GetTasksByDate(DateTime deadline);
         void AddProject(string name);
 
         bool CheckProject(string name);

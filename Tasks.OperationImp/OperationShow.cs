@@ -18,15 +18,16 @@ namespace Tasks.OperationImp
 
         public void Show()
         {
-			foreach (var project in taskListData.GetTaskList())
-			{
-				console.WriteLine(project.Key);
-				foreach (var task in project.Value)
-				{
-					console.WriteLine("    [{0}] {1}: {2}{3}", (task.Done ? 'x' : ' '), task.Id, task.Description, task.deadline.HasValue ? " " + task.deadline.Value.ToString("yyyy-MM-dd") : "");
-				}
-				console.WriteLine();
-			}
-		}
+            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTaskList();
+            foreach (var project in todayTasks)
+            {
+                console.WriteLine(project.Key);
+                foreach (var taskAttribute in project.Value)
+                {
+                    console.WriteLine("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3]);
+                }
+                console.WriteLine();
+            }
+        }
     }
 }
