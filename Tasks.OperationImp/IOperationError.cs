@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperationError
     {
-        string Error(String command);
+        IList<string> Error(String command);
     }
 }

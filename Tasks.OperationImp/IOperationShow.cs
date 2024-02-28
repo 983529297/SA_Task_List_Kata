@@ -8,6 +8,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperationShow
     {
-        void Show();
+        IList<string> Show();
     }
 }

@@ -16,18 +16,20 @@ namespace Tasks.OperationImp
 			this.console = console;
         }
 
-        public void Show()
+        public IList<string> Show()
         {
             IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTaskList();
+            IList<string> showString = new List<string>();
             foreach (var project in todayTasks)
             {
-                console.WriteLine(project.Key);
+                showString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    console.WriteLine("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3]);
+                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3]));
                 }
-                console.WriteLine();
+                showString.Add("");
             }
+            return showString;
         }
     }
 }

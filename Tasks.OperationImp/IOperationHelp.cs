@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperationHelp
     {
-        void Help();
+        IList<string> Help();
     }
 }

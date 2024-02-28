@@ -6,6 +6,6 @@ namespace Tasks.Service
 {
     public interface ITaskListService
     {
-        string Run(string command);
+        IList<string> Run(string command);
     }
 }

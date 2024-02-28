@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Tasks.ExecuteImp
 {
     public interface IExecuteImp
     {
-        string Execute(string commandLine);
+        IList<string> Execute(string commandLine);
     }
 }

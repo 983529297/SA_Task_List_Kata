@@ -16,10 +16,10 @@ namespace Tasks.ExecuteImp
 			this.console = console;
         }
 
-		public void Show()
+		public IList<string> Show()
 		{
 			IOperationShow operationShow = new OperationShow(ref this.console);
-			operationShow.Show();
+			return operationShow.Show();
 		}
 
 		public void Deadline(string commandLine)
@@ -52,13 +52,13 @@ namespace Tasks.ExecuteImp
 			operationDoCheck.SetDone(idString, false);
 		}
 
-		public void Help()
+		public IList<string> Help()
 		{
 			IOperationHelp operationHelp = new OperationHelp(this.console);
-			operationHelp.Help();
+			return operationHelp.Help();
 		}
 
-		public string Error(string command)
+		public IList<string> Error(string command)
 		{
 			IOperationError operationError = new OperationError(this.console);
 			return operationError.Error(command);

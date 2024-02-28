@@ -81,6 +81,7 @@ namespace Tasks
 			Execute("deadline 1 " + DateTime.Now.Date);
 			Execute("deadline 7 " + DateTime.Now.Date);
 			Execute("deadline 4 2023-2-28");
+
 			Execute("show");
 			ReadLines(
 				"secrets",
@@ -96,6 +97,7 @@ namespace Tasks
 				"    [ ] 8: Interaction-Driven Design",
 				""
 			);
+
 			Execute("today");
 			ReadLines(
 				"secrets",
@@ -103,6 +105,17 @@ namespace Tasks
 				"",
 				"training",
 				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				""
+			);
+
+			Execute("help");
+			ReadLines(
+				"Commands:",
+				"  show",
+				"  add project <project name>",
+				"  add task <project name> <task description>",
+				"  check <task ID>",
+				"  uncheck <task ID>",
 				""
 			);
 

@@ -15,15 +15,15 @@ namespace Tasks.ExecuteImp
 			executeOperationImp = new ExecuteOperationImp(ref console);
         }
 
-		public string Execute(string commandLine)
+		public IList<string> Execute(string commandLine)
         {
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
 			switch (command)
 			{
 				case "show":
-					executeOperationImp.Show();
-					break;
+					return executeOperationImp.Show();
+					//break;
 				case "deadline":
 					executeOperationImp.Deadline(commandRest[1]);
 					break;
@@ -40,13 +40,12 @@ namespace Tasks.ExecuteImp
 					executeOperationImp.Uncheck(commandRest[1]);
 					break;
 				case "help":
-					executeOperationImp.Help();
-					break;
+					return executeOperationImp.Help();
 				default:
 					return executeOperationImp.Error(command);
-					//break;
 			}
-			return "";
+
+			return new List<string>();
 		}
     }
 }
