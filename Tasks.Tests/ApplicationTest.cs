@@ -78,8 +78,35 @@ namespace Tasks
                 "    [ ] 8: Interaction-Driven Design",
                 ""
             );
+			Execute("deadline 1 " + DateTime.Now.Date);
+			Execute("deadline 7 " + DateTime.Now.Date);
+			Execute("deadline 4 2023-2-28");
+			Execute("show");
+			ReadLines(
+				"secrets",
+				"    [x] 1: Eat more donuts." + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 2: Destroy all humans.",
+				"",
+				"training",
+				"    [x] 3: Four Elements of Simple Design",
+				"    [ ] 4: SOLID2023-02-28",
+				"    [x] 5: Coupling and Cohesion",
+				"    [x] 6: Primitive Obsession",
+				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 8: Interaction-Driven Design",
+				""
+			);
+			Execute("today");
+			ReadLines(
+				"secrets",
+				"    [x] 1: Eat more donuts." + DateTime.Now.ToString("yyyy-MM-dd"),
+				"",
+				"training",
+				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				""
+			);
 
-            Execute("quit");
+			Execute("quit");
 		}
 
 		private void Execute(string command)

@@ -62,7 +62,7 @@ namespace Tasks.Data
                         {
                             todayTasks[project.Key] = new List<IList<string>>();
                         }
-                        todayTasks[project.Key].Add(new List<string> { task.Done ? "X" : " ", task.Id.ToString(), task.Description, task.deadline.Value.ToString("yyyy-MM-dd") });
+                        todayTasks[project.Key].Add(new List<string> { task.Done ? "x" : " ", task.Id.ToString(), task.Description, task.deadline.Value.ToString("yyyy-MM-dd") });
                     }
                 }
             }
