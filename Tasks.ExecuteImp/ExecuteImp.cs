@@ -16,8 +16,10 @@ namespace Tasks.ExecuteImp
 			var command = commandRest[0];
 			switch (command)
 			{
-				case "show":
+                case "show":
 					return executeOperationImp.Show();
+                case "view":
+					return executeOperationImp.Show(commandRest[1]);
 				case "deadline":
 					executeOperationImp.Deadline(commandRest[1]);
 					break;

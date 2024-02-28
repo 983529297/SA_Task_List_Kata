@@ -6,7 +6,7 @@ namespace Tasks.ExecuteImp
 {
     public interface IExecuteOperationImp
     {
-        IList<string> Show();
+        IList<string> Show(string commandRest = "by project");
         void Deadline(string commandRest);
         IList<string> Today();
         void Add(string commandRest);

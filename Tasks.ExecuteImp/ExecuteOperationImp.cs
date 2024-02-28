@@ -9,7 +9,7 @@ namespace Tasks.ExecuteImp
 {
     public class ExecuteOperationImp : IExecuteOperationImp
     {
-		public IList<string> Show()
+		public IList<string> Show(string sorted = "by project")
 		{
 			IOperationShow operationShow = new OperationShow();
 			return operationShow.Show();
