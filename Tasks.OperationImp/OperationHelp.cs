@@ -15,6 +15,8 @@ namespace Tasks.OperationImp
             helpString.Add("  show");
             helpString.Add("  add project <project name>");
             helpString.Add("  add task <project name> <task description>");
+            helpString.Add("  deadline <task ID> <yyyy-MM-dd");
+            helpString.Add("  today");
             helpString.Add("  check <task ID>");
             helpString.Add("  uncheck <task ID>");
             helpString.Add("");
