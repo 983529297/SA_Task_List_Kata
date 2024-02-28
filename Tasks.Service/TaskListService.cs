@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tasks.Console;
-using Tasks.Data;
 using Tasks.ExecuteImp;
 
 namespace Tasks.Service
