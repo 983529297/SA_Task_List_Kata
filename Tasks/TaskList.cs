@@ -9,6 +9,7 @@ namespace Tasks
 {
 	public sealed class TaskList
 	{
+		private const string QUIT = "quit";
 		private IConsole console;
 
 		public static void Main(string[] args)
@@ -24,7 +25,16 @@ namespace Tasks
 		public void Run()
 		{
 			ITaskListService taskListService = new TaskListService(ref this.console);
-			taskListService.Run();
+			while (true)
+			{
+				console.Write("> ");
+				var command = console.ReadLine();
+				if (command == QUIT)
+				{
+					break;
+				}
+				taskListService.Run(command);
+			}
 		}
 	}
 }
