@@ -17,8 +17,6 @@ namespace Tasks.Data
 
         void AddTask(string project, string description);
 
-        void findTaskById(int id, out Task identifiedTask);
-
         void SetDeadline(int id, DateTime deadline);
 
         void SetDone(int id, bool done);

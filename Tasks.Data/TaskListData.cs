@@ -102,7 +102,7 @@ namespace Tasks.Data
             }
         }
 
-        public void findTaskById(int id, out Task identifiedTask)
+        private void findTaskById(int id, out Task identifiedTask)
         {
             identifiedTask = tasks.Select(project => project.Value.FirstOrDefault(task => task.Id == id))
                 .Where(task => task != null)
