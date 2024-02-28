@@ -67,6 +67,24 @@ namespace Tasks.Data
             return tasksByDeadline;
         }
 
+        public IDictionary<string, IList<IList<string>>> GetTaskListOrderByDate()
+        {
+            IDictionary<string, IList<IList<string>>> tasksByDate = new Dictionary<string, IList<IList<string>>>();
+            foreach (var project in tasks)
+            {
+                foreach (var task in project.Value)
+                {
+                    string date = task.date.ToString("yyyy-MM-dd");
+                    if (!tasksByDate.ContainsKey(date))
+                    {
+                        tasksByDate[date] = new List<IList<string>>();
+                    }
+                    tasksByDate[date].Add(new List<string> { task.Done ? "x" : " ", task.Id.ToString(), task.Description });
+                }
+            }
+            return tasksByDate;
+        }
+
         public IDictionary<string, IList<IList<string>>> GetTasksByDate(DateTime deadline)
         {
             IDictionary<string, IList<IList<string>>> todayTasks = new Dictionary<string, IList<IList<string>>>();
@@ -116,7 +134,7 @@ namespace Tasks.Data
         {
             if (tasks.TryGetValue(project, out IList<Task> projectTasks))
             {
-                projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false });
+                projectTasks.Add(new Task { Id = NextId(), Description = description, Done = false, date = DateTime.Now.Date });
             }
         }
 

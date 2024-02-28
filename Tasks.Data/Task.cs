@@ -12,6 +12,8 @@ namespace Tasks.Data
 
         public bool Done { get; set; }
 
+        public DateTime date { get; set; }
+
         public DateTime? deadline { get; set; }
     }
 }

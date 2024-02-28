@@ -8,12 +8,16 @@ namespace Tasks.OperationImp
     {
         public IOperationShow ShowMethod(string sortedMethod)
         {
-            if (sortedMethod == "by project")
+            switch (sortedMethod)
             {
-                return new OperationShow();
-            }else
-            {
-                return new OperationShowViewByDeadline();
+                case "by project":
+                    return new OperationShow();
+                case "by deadline":
+                    return new OperationShowViewByDeadline();
+                case "by date":
+                    return new OperationShowViewByDate();
+                default:
+                    return new OperationShow();
             }
         }
     }
