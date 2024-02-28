@@ -58,10 +58,10 @@ namespace Tasks.ExecuteImp
 			operationHelp.Help();
 		}
 
-		public void Error(string command)
+		public string Error(string command)
 		{
 			IOperationError operationError = new OperationError(this.console);
-			operationError.Error(command);
+			return operationError.Error(command);
 		}
 	}
 }

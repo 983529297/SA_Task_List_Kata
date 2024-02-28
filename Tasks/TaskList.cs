@@ -33,7 +33,11 @@ namespace Tasks
 				{
 					break;
 				}
-				taskListService.Run(command);
+				string result = taskListService.Run(command);
+				if (!(result == ""))
+                {
+					console.WriteLine(result);
+                }
 			}
 		}
 	}

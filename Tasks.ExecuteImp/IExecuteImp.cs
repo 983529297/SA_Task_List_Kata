@@ -4,6 +4,6 @@ namespace Tasks.ExecuteImp
 {
     public interface IExecuteImp
     {
-        void Execute(string commandLine);
+        string Execute(string commandLine);
     }
 }

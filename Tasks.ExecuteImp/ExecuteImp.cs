@@ -15,7 +15,7 @@ namespace Tasks.ExecuteImp
 			executeOperationImp = new ExecuteOperationImp(ref console);
         }
 
-		public void Execute(string commandLine)
+		public string Execute(string commandLine)
         {
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
@@ -43,9 +43,10 @@ namespace Tasks.ExecuteImp
 					executeOperationImp.Help();
 					break;
 				default:
-					executeOperationImp.Error(command);
-					break;
+					return executeOperationImp.Error(command);
+					//break;
 			}
+			return "";
 		}
     }
 }

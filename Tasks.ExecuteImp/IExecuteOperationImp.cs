@@ -13,6 +13,6 @@ namespace Tasks.ExecuteImp
         void Check(string commandRest);
         void Uncheck(string commandRest);
         void Help();
-        void Error(string command);
+        string Error(string command);
     }
 }

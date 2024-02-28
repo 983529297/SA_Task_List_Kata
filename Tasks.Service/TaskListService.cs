@@ -15,10 +15,10 @@ namespace Tasks.Service
             this.console = console;
         }
 
-		public void Run(string command)
+		public string Run(string command)
 		{
             IExecuteImp executeImp = new ExecuteImp.ExecuteImp(ref console);
-			executeImp.Execute(command);
+			return executeImp.Execute(command);
 		}
 	}
 }

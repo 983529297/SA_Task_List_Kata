@@ -14,9 +14,10 @@ namespace Tasks.OperationImp
             this.console = console;
         }
 
-        public void Error(String command)
+        public string Error(String command)
         {
-            console.WriteLine("I don't know what the command \"{0}\" is.", command);
+            //console.WriteLine("I don't know what the command \"{0}\" is.", command);
+            return string.Format("I don't know what the command \"{0}\" is.", command);
         }
     }
 }
