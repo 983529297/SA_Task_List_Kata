@@ -135,6 +135,9 @@ namespace Tasks
 			ReadLines(
 				"Commands:",
 				"  show",
+				"  view by project",
+				"  view by deadline",
+				"  view by date",
 				"  add project <project name>",
 				"  add task <project name> <task description>",
 				"  deadline <task ID> <yyyy-MM-dd>",
