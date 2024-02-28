@@ -23,12 +23,11 @@ namespace Tasks.ExecuteImp
 			{
 				case "show":
 					return executeOperationImp.Show();
-					//break;
 				case "deadline":
 					executeOperationImp.Deadline(commandRest[1]);
 					break;
 				case "today":
-					executeOperationImp.Today();
+					return executeOperationImp.Today();
 					break;
 				case "add":
 					executeOperationImp.Add(commandRest[1]);

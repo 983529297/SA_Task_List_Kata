@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperationToday
     {
-        void Today();
+        IList<string> Today();
     }
 }
