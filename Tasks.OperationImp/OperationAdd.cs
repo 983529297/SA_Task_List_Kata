@@ -8,14 +8,7 @@ namespace Tasks.OperationImp
 {
     public class OperationAdd : IOperationAdd
     {
-
-		private readonly IConsole console;
 		private readonly ITaskListData taskListData = TaskListData.Instance;
-
-		public OperationAdd(IConsole console)
-        {
-			this.console = console;
-        }
 
 		public void Add(String commandLine)
         {
@@ -41,8 +34,7 @@ namespace Tasks.OperationImp
 		{
 			if (!taskListData.CheckProject(project))
 			{
-				System.Console.WriteLine("Could not find a project with the name \"{0}\".", project);
-				return;
+				throw new Exception(string.Format("Could not find a project with the name \"{0}\".", project));
 			}
 			taskListData.AddTask(project, description);
 		}

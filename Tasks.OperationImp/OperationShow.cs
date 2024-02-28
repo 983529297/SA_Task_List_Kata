@@ -8,13 +8,7 @@ namespace Tasks.OperationImp
 {
     public class OperationShow : IOperationShow
     {
-		private readonly IConsole console;
 		private readonly ITaskListData taskListData = TaskListData.Instance;
-
-		public OperationShow(ref IConsole console)
-        {
-			this.console = console;
-        }
 
         public IList<string> Show()
         {

@@ -8,12 +8,7 @@ namespace Tasks.ExecuteImp
 {
     public class ExecuteImp : IExecuteImp
     {
-		private readonly IExecuteOperationImp executeOperationImp;
-
-		public ExecuteImp(ref IConsole console)
-        {
-			executeOperationImp = new ExecuteOperationImp(ref console);
-        }
+		private readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp();
 
 		public IList<string> Execute(string commandLine)
         {
@@ -28,7 +23,6 @@ namespace Tasks.ExecuteImp
 					break;
 				case "today":
 					return executeOperationImp.Today();
-					break;
 				case "add":
 					executeOperationImp.Add(commandRest[1]);
 					break;

@@ -24,7 +24,7 @@ namespace Tasks
 
 		public void Run()
 		{
-			ITaskListService taskListService = new TaskListService(ref this.console);
+			ITaskListService taskListService = new TaskListService();
 			while (true)
 			{
 				console.Write("> ");
@@ -32,16 +32,23 @@ namespace Tasks
 				if (command == QUIT)
 				{
 					break;
-				}
-				IList<string> result = taskListService.Run(command);
-				if (result.Count != 0)
+                }
+                try
                 {
-					foreach (var line in result)
+                    IList<string> result = taskListService.Run(command);
+                    if (result.Count != 0)
                     {
-						console.WriteLine(line);
-					}
-				}
-			}
-		}
+                        foreach (var line in result)
+                        {
+                            console.WriteLine(line);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+					console.WriteLine("Error : " + ex.Message);
+                }
+            }
+        }
 	}
 }

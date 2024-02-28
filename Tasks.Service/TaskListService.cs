@@ -8,17 +8,9 @@ namespace Tasks.Service
 {
     public class TaskListService : ITaskListService
     {
-		private const string QUIT = "quit";
-        private IConsole console;
-
-        public TaskListService(ref IConsole console)
-        {
-            this.console = console;
-        }
-
 		public IList<string> Run(string command)
 		{
-            IExecuteImp executeImp = new ExecuteImp.ExecuteImp(ref console);
+            IExecuteImp executeImp = new ExecuteImp.ExecuteImp();
 			return executeImp.Execute(command);
 		}
 	}

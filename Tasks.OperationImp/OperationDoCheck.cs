@@ -8,13 +8,7 @@ namespace Tasks.OperationImp
 {
     public class OperationDoCheck : IOperationDoCheck
     {
-        private readonly IConsole console;
         private readonly ITaskListData taskListData = TaskListData.Instance;
-
-        public OperationDoCheck(IConsole console)
-        {
-            this.console = console;
-        }
 
         public void SetDone(string idString, bool done)
         {
@@ -22,8 +16,7 @@ namespace Tasks.OperationImp
             taskListData.findTaskById(id, out Task identifiedTask); ;
             if (identifiedTask == null)
             {
-                console.WriteLine("Could not find a task with an ID of {0}.", id);
-                return;
+                throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
             }
 
             taskListData.SetDone(done, ref identifiedTask);

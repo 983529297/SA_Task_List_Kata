@@ -8,13 +8,7 @@ namespace Tasks.OperationImp
 {
     public class OperationDeadline : IOperationDeadline
     {
-        private IConsole console;
         private ITaskListData taskListData = TaskListData.Instance;
-
-        public OperationDeadline(ref IConsole console)
-        {
-            this.console = console;
-        }
 
         public void Deadline(string commandLine)
         {
@@ -26,8 +20,7 @@ namespace Tasks.OperationImp
             taskListData.findTaskById(id, out Task identifiedTask); ;
             if (identifiedTask == null)
             {
-                console.WriteLine("Could not find a task with an ID of {0}.", id);
-                return;
+                throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
             }
             taskListData.SetDeadline(deadline, ref identifiedTask);
         }
