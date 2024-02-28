@@ -8,9 +8,9 @@ namespace Tasks.ExecuteImp
 {
     public class ExecuteOperationImp : IExecuteOperationImp
     {
-		public IList<string> Show(string sorted = "by project")
+		public IList<string> Show(string sortedMethod = "by project")
 		{
-			IOperationShow operationShow = new OperationShow();
+			IOperationShow operationShow = new OperationShowFactory().ShowMethod(sortedMethod);
 			return operationShow.Show();
 		}
 

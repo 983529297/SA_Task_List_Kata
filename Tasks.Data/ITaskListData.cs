@@ -7,6 +7,7 @@ namespace Tasks.Data
     public interface ITaskListData
     {
         IDictionary<string, IList<IList<string>>> GetTaskList();
+        IDictionary<string, IList<IList<string>>> GetTaskListOrderByDeadline();
 
         IDictionary<string, IList<IList<string>>> GetTasksByDate(DateTime deadline);
         void AddProject(string name);

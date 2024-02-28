@@ -85,15 +85,15 @@ namespace Tasks
 			Execute("show");
 			ReadLines(
 				"secrets",
-				"    [x] 1: Eat more donuts." + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [x] 1: Eat more donuts. " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"    [ ] 2: Destroy all humans.",
 				"",
 				"training",
 				"    [x] 3: Four Elements of Simple Design",
-				"    [ ] 4: SOLID2023-02-28",
+				"    [ ] 4: SOLID 2023-02-28",
 				"    [x] 5: Coupling and Cohesion",
 				"    [x] 6: Primitive Obsession",
-				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"    [ ] 8: Interaction-Driven Design",
 				""
 			);
@@ -101,10 +101,10 @@ namespace Tasks
 			Execute("today");
 			ReadLines(
 				"secrets",
-				"    [x] 1: Eat more donuts." + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [x] 1: Eat more donuts. " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"",
 				"training",
-				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
 				""
 			);
 
@@ -116,10 +116,10 @@ namespace Tasks
 				"",
 				"training",
 				"    [x] 3: Four Elements of Simple Design",
-				"    [ ] 4: SOLID2023-02-28",
+				"    [ ] 4: SOLID 2023-02-28",
 				"    [x] 5: Coupling and Cohesion",
 				"    [x] 6: Primitive Obsession",
-				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"    [ ] 8: Interaction-Driven Design",
 				""
 			);
@@ -127,7 +127,7 @@ namespace Tasks
 			Execute("today");
 			ReadLines(
 				"training",
-				"    [ ] 7: Outside-In TDD" + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
 				""
 			);
 

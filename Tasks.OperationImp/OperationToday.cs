@@ -18,7 +18,7 @@ namespace Tasks.OperationImp
                 todayString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    todayString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3]));
+                    todayString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3] == "" ? "" : " " + taskAttribute[3]));
                 }
                 todayString.Add("");
             }
