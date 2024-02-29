@@ -5,4 +5,8 @@
     <OutputType>Exe</OutputType>
     <StartupObject>Tasks.TaskList</StartupObject>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
+    <ProjectReference Include="..\Tasks.Service\Tasks.Service.csproj" />
+  </ItemGroup>
 </Project>

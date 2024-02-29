@@ -42,40 +42,108 @@ namespace Tasks
 			Execute("add task secrets Eat more donuts.");
 			Execute("add task secrets Destroy all humans.");
 
+            Execute("show");
+            ReadLines(
+                "secrets",
+                "    [ ] 1: Eat more donuts.",
+                "    [ ] 2: Destroy all humans.",
+                ""
+            );
+
+            Execute("add project training");
+            Execute("add task training Four Elements of Simple Design");
+            Execute("add task training SOLID");
+            Execute("add task training Coupling and Cohesion");
+            Execute("add task training Primitive Obsession");
+            Execute("add task training Outside-In TDD");
+            Execute("add task training Interaction-Driven Design");
+
+            Execute("check 1");
+            Execute("check 3");
+            Execute("check 5");
+            Execute("check 6");
+
+            Execute("show");
+            ReadLines(
+                "secrets",
+                "    [x] 1: Eat more donuts.",
+                "    [ ] 2: Destroy all humans.",
+                "",
+                "training",
+                "    [x] 3: Four Elements of Simple Design",
+                "    [ ] 4: SOLID",
+                "    [x] 5: Coupling and Cohesion",
+                "    [x] 6: Primitive Obsession",
+                "    [ ] 7: Outside-In TDD",
+                "    [ ] 8: Interaction-Driven Design",
+                ""
+            );
+			Execute("deadline 1 " + DateTime.Now.Date);
+			Execute("deadline 7 " + DateTime.Now.Date);
+			Execute("deadline 4 2023-2-28");
+
 			Execute("show");
 			ReadLines(
 				"secrets",
-				"    [ ] 1: Eat more donuts.",
-				"    [ ] 2: Destroy all humans.",
-				""
-			);
-
-			Execute("add project training");
-			Execute("add task training Four Elements of Simple Design");
-			Execute("add task training SOLID");
-			Execute("add task training Coupling and Cohesion");
-			Execute("add task training Primitive Obsession");
-			Execute("add task training Outside-In TDD");
-			Execute("add task training Interaction-Driven Design");
-
-			Execute("check 1");
-			Execute("check 3");
-			Execute("check 5");
-			Execute("check 6");
-
-			Execute("show");
-			ReadLines(
-				"secrets",
-				"    [x] 1: Eat more donuts.",
+				"    [x] 1: Eat more donuts. " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"    [ ] 2: Destroy all humans.",
 				"",
 				"training",
 				"    [x] 3: Four Elements of Simple Design",
-				"    [ ] 4: SOLID",
+				"    [ ] 4: SOLID 2023-02-28",
 				"    [x] 5: Coupling and Cohesion",
 				"    [x] 6: Primitive Obsession",
-				"    [ ] 7: Outside-In TDD",
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
 				"    [ ] 8: Interaction-Driven Design",
+				""
+			);
+
+			Execute("today");
+			ReadLines(
+				"secrets",
+				"    [x] 1: Eat more donuts. " + DateTime.Now.ToString("yyyy-MM-dd"),
+				"",
+				"training",
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
+				""
+			);
+
+			Execute("delete 1");
+			Execute("show");
+			ReadLines(
+				"secrets",
+				"    [ ] 2: Destroy all humans.",
+				"",
+				"training",
+				"    [x] 3: Four Elements of Simple Design",
+				"    [ ] 4: SOLID 2023-02-28",
+				"    [x] 5: Coupling and Cohesion",
+				"    [x] 6: Primitive Obsession",
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
+				"    [ ] 8: Interaction-Driven Design",
+				""
+			);
+
+			Execute("today");
+			ReadLines(
+				"training",
+				"    [ ] 7: Outside-In TDD " + DateTime.Now.ToString("yyyy-MM-dd"),
+				""
+			);
+
+			Execute("help");
+			ReadLines(
+				"Commands:",
+				"  show",
+				"  view by project",
+				"  view by deadline",
+				"  view by date",
+				"  add project <project name>",
+				"  add task <project name> <task description>",
+				"  deadline <task ID> <yyyy-MM-dd>",
+				"  today",
+				"  check <task ID>",
+				"  uncheck <task ID>",
 				""
 			);
 
