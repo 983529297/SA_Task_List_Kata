@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationShowViewByDate :IOperationShow
+    public class OperationShowViewByDate : OperationBase, IOperationShow
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public IList<string> Show()
         {
             IDictionary<string, IList<TaskListViewByDateArg>> todayTasks = taskListData.GetTaskListOrderByDate();

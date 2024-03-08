@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDelete : IOperationDelete
+    public class OperationDelete : OperationBase, IOperationDelete
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public void Delete(string idString)
         {
             int id = int.Parse(idString);

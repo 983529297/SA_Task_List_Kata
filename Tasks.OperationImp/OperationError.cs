@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.OperationImp
 {
-    public class OperationError : IOperationError
+    public class OperationError : OperationBase, IOperationError
     {
         public IList<string> Error(string command)
         {

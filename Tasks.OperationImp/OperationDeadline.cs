@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDeadline : IOperationDeadline
+    public class OperationDeadline : OperationBase, IOperationDeadline
     {
-        private ITaskListData taskListData = TaskListData.Instance;
-
         public void Deadline(string commandLine)
         {
             var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);

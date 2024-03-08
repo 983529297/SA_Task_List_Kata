@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationShowViewByDeadline : IOperationShow
+    public class OperationShowViewByDeadline : OperationBase, IOperationShow
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public IList<string> Show()
         {
             IDictionary<string, IList<TaskListViewByDeadlineArg>> todayTasks = taskListData.GetTaskListOrderByDeadline();

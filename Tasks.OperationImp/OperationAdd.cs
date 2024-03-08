@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationAdd : IOperationAdd
+    public class OperationAdd : OperationBase, IOperationAdd
     {
-		private readonly ITaskListData taskListData = TaskListData.Instance;
-
 		public void Add(String commandLine)
         {
 			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);

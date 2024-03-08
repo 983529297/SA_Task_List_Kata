@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationToday : IOperationToday
+    public class OperationToday : OperationBase, IOperationToday
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public IList<string> Today()
         {
             IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);

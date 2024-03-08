@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationShow : IOperationShow
+    public class OperationShow : OperationBase, IOperationShow
     {
-		private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public IList<string> Show()
         {
             IDictionary<string, IList<TaskListArg>> todayTasks = taskListData.GetTaskList();

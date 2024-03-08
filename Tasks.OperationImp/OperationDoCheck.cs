@@ -5,10 +5,8 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDoCheck : IOperationDoCheck
+    public class OperationDoCheck : OperationBase, IOperationDoCheck
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
-
         public void SetDone(string idString, bool done)
         {
             int id = int.Parse(idString);

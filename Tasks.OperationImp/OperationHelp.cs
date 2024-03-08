@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.OperationImp
 {
-    public class OperationHelp : IOperationHelp
+    public class OperationHelp : OperationBase, IOperationHelp
     {
         public IList<string> Help()
         {
