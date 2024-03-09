@@ -7,7 +7,7 @@ namespace Tasks.OperationImp
 {
     public class OperationAdd : OperationBase, IOperationAdd
     {
-		public void Add(String commandLine)
+		public void Add(string commandLine)
         {
 			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var subcommand = subcommandRest[0];

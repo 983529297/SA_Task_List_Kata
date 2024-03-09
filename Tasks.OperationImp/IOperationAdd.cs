@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperationAdd
     {
-        void Add(String commandLine);
+        void Add(string commandLine);
     }
 }
