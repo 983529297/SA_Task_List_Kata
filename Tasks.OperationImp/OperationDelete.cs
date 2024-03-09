@@ -5,11 +5,21 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDelete : IOperationDelete
+    public class OperationDelete : OperationBase, IOperateAndEnd
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
+        private readonly string idString;
 
-        public void Delete(string idString)
+        public OperationDelete(string idString)
+        {
+            this.idString = idString;
+        }
+
+        public void OperateAndEnd()
+        {
+            Delete(idString);
+        }
+
+        private void Delete(string idString)
         {
             int id = int.Parse(idString);
             taskListData.DeleteTask(id);

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Tasks.OperationImp
 {
-    public interface IOperationHelp
+    public interface IOperateAndReturn
     {
-        IList<string> Help();
+        IList<string> OperateAndReturn();
     }
 }

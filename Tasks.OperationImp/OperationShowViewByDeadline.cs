@@ -5,11 +5,14 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationShowViewByDeadline : IOperationShow
+    public class OperationShowViewByDeadline : OperationBase, IOperateAndReturn
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
+        public IList<string> OperateAndReturn()
+        {
+            return Show();
+        }
 
-        public IList<string> Show()
+        private IList<string> Show()
         {
             IDictionary<string, IList<TaskListViewByDeadlineArg>> todayTasks = taskListData.GetTaskListOrderByDeadline();
             IList<string> showString = new List<string>();

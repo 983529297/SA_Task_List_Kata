@@ -5,9 +5,21 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDoCheck : IOperationDoCheck
+    public class OperationDoCheck : OperationBase, IOperateAndEnd
     {
-        private readonly ITaskListData taskListData = TaskListData.Instance;
+        private readonly string idString;
+        private readonly bool done;
+
+        public OperationDoCheck(string idString, bool done)
+        {
+            this.idString = idString;
+            this.done = done;
+        }
+
+        public void OperateAndEnd()
+        {
+            SetDone(idString, done);
+        }
 
         public void SetDone(string idString, bool done)
         {

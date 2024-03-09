@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks", "Tasks\Tasks.csproj", "{15B0CBFF-BE62-420C-878A-94FC6590A01D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Controller", "Tasks.Controller\Tasks.Controller.csproj", "{15B0CBFF-BE62-420C-878A-94FC6590A01D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8CDC6645-E546-40CB-94E2-071A5AA23F1C} = {8CDC6645-E546-40CB-94E2-071A5AA23F1C}
 	EndProjectSection

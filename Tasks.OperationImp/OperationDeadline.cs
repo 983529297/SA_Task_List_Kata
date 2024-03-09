@@ -5,11 +5,21 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationDeadline : IOperationDeadline
+    public class OperationDeadline : OperationBase, IOperateAndEnd
     {
-        private ITaskListData taskListData = TaskListData.Instance;
+        private readonly string commandLine;
 
-        public void Deadline(string commandLine)
+        public OperationDeadline(string commandLine)
+        {
+            this.commandLine = commandLine;
+        }
+
+        public void OperateAndEnd()
+        {
+            Deadline(commandLine);
+        }
+
+        private void Deadline(string commandLine)
         {
             var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
             var idString = subcommandRest[0];

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public interface IOperationDoCheck
+    public class OperationBase
     {
-        void SetDone(String idString, bool done);
+        protected ITaskListData taskListData = TaskListData.Instance;
     }
 }

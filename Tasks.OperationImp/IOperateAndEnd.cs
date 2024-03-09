@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Tasks.OperationImp
 {
-    public interface IOperationToday
+    public interface IOperateAndEnd
     {
-        IList<string> Today();
+        void OperateAndEnd();
     }
 }

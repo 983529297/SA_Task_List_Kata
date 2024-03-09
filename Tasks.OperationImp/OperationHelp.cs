@@ -4,9 +4,14 @@ using System.Text;
 
 namespace Tasks.OperationImp
 {
-    public class OperationHelp : IOperationHelp
+    public class OperationHelp : OperationBase, IOperateAndReturn
     {
-        public IList<string> Help()
+        public IList<string> OperateAndReturn()
+        {
+            return Help();
+        }
+
+        private IList<string> Help()
         {
             IList<string> helpString = new List<string> ();
 

@@ -7,17 +7,17 @@ using Tasks.Service;
 
 namespace Tasks
 {
-	public sealed class TaskList
+	public sealed class TaskController
 	{
 		private const string QUIT = "quit";
 		private IConsole console;
 
 		public static void Main(string[] args)
 		{
-			new TaskList(new RealConsole()).Run();
+			new TaskController(new RealConsole()).Run();
 		}
 
-		public TaskList(IConsole console)
+		public TaskController(IConsole console)
 		{
 			this.console = console;
 		}

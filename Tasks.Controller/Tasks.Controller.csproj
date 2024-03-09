@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>Tasks.TaskController</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
+    <ProjectReference Include="..\Tasks.Service\Tasks.Service.csproj" />
+  </ItemGroup>
+</Project>
