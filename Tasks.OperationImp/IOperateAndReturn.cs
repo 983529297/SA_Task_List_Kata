@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public interface IOperationShow
+    public interface IOperateAndReturn
     {
-        IList<string> Show();
+        IList<string> OperationAndReturn();
     }
 }

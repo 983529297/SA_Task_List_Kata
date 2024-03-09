@@ -10,8 +10,8 @@ namespace Tasks.ExecuteImp
     {
 		public IList<string> Show(string sortedMethod = "by project")
 		{
-			IOperationShow operationShow = new OperationShowFactory().ShowMethod(sortedMethod);
-			return operationShow.Show();
+			IOperateAndReturn operationShow = new OperationShowFactory().ShowMethod(sortedMethod);
+			return operationShow.OperationAndReturn();
 		}
 
 		public void Deadline(string commandLine)

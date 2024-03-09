@@ -6,7 +6,7 @@ namespace Tasks.OperationImp
 {
     public class OperationShowFactory
     {
-        public IOperationShow ShowMethod(string sortedMethod)
+        public IOperateAndReturn ShowMethod(string sortedMethod)
         {
             switch (sortedMethod)
             {
@@ -17,7 +17,7 @@ namespace Tasks.OperationImp
                 case "by date":
                     return new OperationShowViewByDate();
                 default:
-                    return new OperationShow();
+                    throw new Exception("Could not find the command");
             }
         }
     }

@@ -5,9 +5,14 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationShowViewByDate : OperationBase, IOperationShow
+    public class OperationShowViewByDate : OperationBase, IOperateAndReturn
     {
-        public IList<string> Show()
+        public IList<string> OperationAndReturn()
+        {
+            return Show();
+        }
+
+        private IList<string> Show()
         {
             IDictionary<string, IList<TaskListViewByDateArg>> todayTasks = taskListData.GetTaskListOrderByDate();
             IList<string> showString = new List<string>();
