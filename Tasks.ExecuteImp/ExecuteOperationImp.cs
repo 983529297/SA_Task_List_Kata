@@ -11,7 +11,7 @@ namespace Tasks.ExecuteImp
 		public IList<string> Show(string sortedMethod = "by project")
 		{
 			IOperateAndReturn operationShow = new OperationShowFactory().ShowMethod(sortedMethod);
-			return operationShow.OperationAndReturn();
+			return operationShow.OperateAndReturn();
 		}
 
 		public void Deadline(string commandLine)
@@ -22,44 +22,44 @@ namespace Tasks.ExecuteImp
 
 		public IList<string> Today()
         {
-			IOperationToday operationToday = new OperationToday();
-			return operationToday.Today();
+			IOperateAndReturn operationToday = new OperationToday();
+			return operationToday.OperateAndReturn();
         }
 
 		public void Add(string commandLine)
 		{
-			IOperationAdd operationAdd = new OperationAdd();
-			operationAdd.Add(commandLine);
+			IOperateAndEnd operationAdd = new OperationAdd(commandLine);
+			operationAdd.OperateAndEnd();
 		}
 
 		public void Delete(string idString)
         {
-			IOperationDelete operationDelete = new OperationDelete();
-			operationDelete.Delete(idString);
+			IOperateAndEnd operationDelete = new OperationDelete(idString);
+			operationDelete.OperateAndEnd();
         }
 
 		public void Check(string idString)
 		{
-			IOperationDoCheck operationDoCheck = new OperationDoCheck();
-			operationDoCheck.SetDone(idString, true);
+			IOperateAndEnd operationDoCheck = new OperationDoCheck(idString, true);
+			operationDoCheck.OperateAndEnd();
 		}
 
 		public void Uncheck(string idString)
 		{
-			IOperationDoCheck operationDoCheck = new OperationDoCheck();
-			operationDoCheck.SetDone(idString, false);
+			IOperateAndEnd operationDoCheck = new OperationDoCheck(idString, false);
+			operationDoCheck.OperateAndEnd();
 		}
 
 		public IList<string> Help()
 		{
-			IOperationHelp operationHelp = new OperationHelp();
-			return operationHelp.Help();
+			IOperateAndReturn operationHelp = new OperationHelp();
+			return operationHelp.OperateAndReturn();
 		}
 
 		public IList<string> Error(string command)
 		{
-			IOperationError operationError = new OperationError();
-			return operationError.Error(command);
+			IOperateAndReturn operationError = new OperationError(command);
+			return operationError.OperateAndReturn();
 		}
 	}
 }

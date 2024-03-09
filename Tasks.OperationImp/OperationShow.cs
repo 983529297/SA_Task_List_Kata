@@ -7,7 +7,7 @@ namespace Tasks.OperationImp
 {
     public class OperationShow : OperationBase, IOperateAndReturn
     {
-        public IList<string> OperationAndReturn()
+        public IList<string> OperateAndReturn()
         {
             return Show();
         }

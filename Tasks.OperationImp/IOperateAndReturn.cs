@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperateAndReturn
     {
-        IList<string> OperationAndReturn();
+        IList<string> OperateAndReturn();
     }
 }

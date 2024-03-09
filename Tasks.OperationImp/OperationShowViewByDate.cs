@@ -7,7 +7,7 @@ namespace Tasks.OperationImp
 {
     public class OperationShowViewByDate : OperationBase, IOperateAndReturn
     {
-        public IList<string> OperationAndReturn()
+        public IList<string> OperateAndReturn()
         {
             return Show();
         }

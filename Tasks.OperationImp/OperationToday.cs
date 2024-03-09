@@ -5,9 +5,14 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationToday : OperationBase, IOperationToday
+    public class OperationToday : OperationBase, IOperateAndReturn
     {
-        public IList<string> Today()
+        public IList<string> OperateAndReturn()
+        {
+            return Today();
+        }
+
+        private IList<string> Today()
         {
             IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
             IList<string> todayString = new List<string>();

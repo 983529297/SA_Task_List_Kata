@@ -5,9 +5,21 @@ using Tasks.Data;
 
 namespace Tasks.OperationImp
 {
-    public class OperationAdd : OperationBase, IOperationAdd
+    public class OperationAdd : OperationBase, IOperateAndEnd
     {
-		public void Add(string commandLine)
+		private readonly string commandLine;
+		
+		public OperationAdd(string commandLine)
+        {
+			this.commandLine = commandLine;
+        }
+
+		public void OperateAndEnd()
+        {
+			Add(commandLine);
+        }
+
+		private void Add(string commandLine)
         {
 			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var subcommand = subcommandRest[0];
