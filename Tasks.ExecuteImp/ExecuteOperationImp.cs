@@ -16,8 +16,8 @@ namespace Tasks.ExecuteImp
 
 		public void Deadline(string commandLine)
         {
-			IOperationDeadline operationDeadline = new OperationDeadline();
-			operationDeadline.Deadline(commandLine);
+			IOperateAndEnd operationDeadline = new OperationDeadline(commandLine);
+			operationDeadline.OperateAndEnd();
         }
 
 		public IList<string> Today()

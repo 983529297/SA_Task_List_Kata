@@ -6,6 +6,6 @@ namespace Tasks.OperationImp
 {
     public interface IOperateAndEnd
     {
-        void OperationAndEnd();
+        void OperateAndEnd();
     }
 }
