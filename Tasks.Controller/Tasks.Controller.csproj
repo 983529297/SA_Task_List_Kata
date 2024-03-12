@@ -3,10 +3,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <StartupObject>Tasks.TaskController</StartupObject>
+    <StartupObject>Tasks.Controller.TaskController</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
-    <ProjectReference Include="..\Tasks.Service\Tasks.Service.csproj" />
+    <ProjectReference Include="..\Tasks.ExecuteImp\Tasks.ExecuteImp.csproj" />
   </ItemGroup>
 </Project>

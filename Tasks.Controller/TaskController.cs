@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Tasks.Data;
 using Tasks.Console;
-using Tasks.Service;
 
-namespace Tasks
+namespace Tasks.Controller
 {
 	public sealed class TaskController
 	{
@@ -24,7 +22,7 @@ namespace Tasks
 
 		public void Run()
 		{
-			ITaskListService taskListService = new TaskListService();
+			IExecuteOperation executeImp = new ExecuteOperation();
 			while (true)
 			{
 				console.Write("> ");
@@ -35,7 +33,7 @@ namespace Tasks
                 }
                 try
                 {
-                    IList<string> result = taskListService.Run(command);
+                    IList<string> result = executeImp.Execute(command);
                     if (result.Count != 0)
                     {
                         foreach (var line in result)
