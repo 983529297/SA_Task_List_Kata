@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Tasks.Controller
 {
-    public class Execute
+    public interface IExecuteImp
     {
+        IList<string> Execute(string commandLine);
     }
 }
