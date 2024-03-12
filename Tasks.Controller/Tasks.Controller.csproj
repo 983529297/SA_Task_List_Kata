@@ -7,6 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
-    <ProjectReference Include="..\Tasks.Service\Tasks.Service.csproj" />
+    <ProjectReference Include="..\Tasks.ExecuteImp\Tasks.ExecuteImp.csproj" />
   </ItemGroup>
 </Project>
