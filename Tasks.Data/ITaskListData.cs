@@ -12,7 +12,7 @@ namespace Tasks.Data
 
         IDictionary<string, IList<TaskListViewByDateArg>> GetTaskListOrderByDate();
 
-        IDictionary<string, IList<IList<string>>> GetTasksByDate(DateTime deadline);
+        IDictionary<string, IList<TaskListTodayArg>> GetTasksByDate(DateTime deadline);
         void AddProject(string name);
 
         bool CheckProject(string name);

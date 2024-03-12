@@ -14,14 +14,14 @@ namespace Tasks.OperationImp
 
         private IList<string> Today()
         {
-            IDictionary<string, IList<IList<string>>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
+            IDictionary<string, IList<TaskListTodayArg>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
             IList<string> todayString = new List<string>();
             foreach (var project in todayTasks)
             {
                 todayString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    todayString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute[0], taskAttribute[1], taskAttribute[2], taskAttribute[3] == "" ? "" : " " + taskAttribute[3]));
+                    todayString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description, taskAttribute.Deadline == "" ? "" : " " + taskAttribute.Deadline));
                 }
                 todayString.Add("");
             }
