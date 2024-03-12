@@ -22,7 +22,7 @@ namespace Tasks.Controller
 
 		public void Run()
 		{
-			IExecuteImp executeImp = new ExecuteImp();
+			IExecuteOperation executeImp = new ExecuteOperation();
 			while (true)
 			{
 				console.Write("> ");

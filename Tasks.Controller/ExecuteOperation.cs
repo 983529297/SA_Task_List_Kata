@@ -5,7 +5,7 @@ using Tasks.ExecuteImp;
 
 namespace Tasks.Controller
 {
-    public class ExecuteImp : IExecuteImp
+    public class ExecuteOperation : IExecuteOperation
     {
         private readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp();
 
