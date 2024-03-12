@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteImp;
+using Tasks.ExecuteOperationImp;
 
 namespace Tasks.Controller
 {
     public class ExecuteOperation : IExecuteOperation
     {
-        private readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp();
+        private readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp.ExecuteOperationImp();
 
         public IList<string> Execute(string commandLine)
         {
