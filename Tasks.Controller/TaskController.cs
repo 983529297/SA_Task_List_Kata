@@ -4,7 +4,7 @@ using System.Linq;
 using Tasks.Console;
 using Tasks.ExecuteImp;
 
-namespace Tasks
+namespace Tasks.Controller
 {
 	public sealed class TaskController
 	{
@@ -23,7 +23,7 @@ namespace Tasks
 
 		public void Run()
 		{
-			IExecuteImp executeImp = new ExecuteImp.ExecuteImp();
+			IExecuteImp executeImp = new ExecuteImp();
 			while (true)
 			{
 				console.Write("> ");
