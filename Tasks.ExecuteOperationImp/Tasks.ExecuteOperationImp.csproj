@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tasks.OperationImp\Tasks.OperationImp.csproj" />
+    <ProjectReference Include="..\Tasks.Data\Tasks.Data.csproj" />
   </ItemGroup>
 
 </Project>

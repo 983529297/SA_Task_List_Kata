@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.Data;
-using Tasks.OperationImp;
 
 namespace Tasks.ExecuteOperationImp
 {
