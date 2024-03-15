@@ -16,6 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tasks.Controller\Tasks.Controller.csproj" />
+    <ProjectReference Include="..\Tasks.Main\Tasks.Main.csproj" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon />
     <OutputType>Exe</OutputType>
-    <StartupObject>Tasks.Controller.TaskController</StartupObject>
+    <StartupObject>Tasks.Main.TaskMain</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />

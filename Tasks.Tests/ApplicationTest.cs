@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using NUnit.Framework;
-using Tasks.Controller;
+using Tasks.Main;
 
 namespace Tasks
 {
@@ -17,7 +17,7 @@ namespace Tasks
 		public void StartTheApplication()
 		{
 			this.console = new FakeConsole();
-			var taskList = new TaskController(console);
+			var taskList = new TaskMain(console);
 			this.applicationThread = new System.Threading.Thread(() => taskList.Run());
 			applicationThread.Start();
 		}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Controller
+namespace Tasks.Main
 {
     public interface IExecuteOperation
     {

@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using Tasks.Console;
 
-namespace Tasks.Controller
+namespace Tasks.Main
 {
-	public sealed class TaskController
+	public sealed class TaskMain
 	{
 		private const string QUIT = "quit";
 		private IConsole console;
 
 		public static void Main(string[] args)
 		{
-			new TaskController(new RealConsole()).Run();
+			new TaskMain(new RealConsole()).Run();
 		}
 
-		public TaskController(IConsole console)
+		public TaskMain(IConsole console)
 		{
 			this.console = console;
 		}
