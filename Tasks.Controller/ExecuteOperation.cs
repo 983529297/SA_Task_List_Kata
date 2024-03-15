@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tasks.ExecuteOperationImp;
 
-namespace Tasks.Main
+namespace Tasks.Controller
 {
     public class ExecuteOperation : IExecuteOperation
     {

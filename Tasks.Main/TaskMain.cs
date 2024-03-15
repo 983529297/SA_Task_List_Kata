@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Tasks.Console;
+using Tasks.Controller;
 
 namespace Tasks.Main
 {
@@ -22,31 +23,7 @@ namespace Tasks.Main
 
 		public void Run()
 		{
-			IExecuteOperation executeImp = new ExecuteOperation();
-			while (true)
-			{
-				console.Write("> ");
-				var command = console.ReadLine();
-				if (command == QUIT)
-				{
-					break;
-                }
-                try
-                {
-                    IList<string> result = executeImp.Execute(command);
-                    if (result.Count != 0)
-                    {
-                        foreach (var line in result)
-                        {
-                            console.WriteLine(line);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-					console.WriteLine("Error : " + ex.Message);
-                }
-            }
+			new TaskController(console).Run();
         }
 	}
 }
