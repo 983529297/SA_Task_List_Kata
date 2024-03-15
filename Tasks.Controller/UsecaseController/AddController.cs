@@ -1,23 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class AddController : IUsecaseController
+    public class AddController : UsecaseControllerBase
     {
-        public IList<string> Execute(string command)
+        public void Add(string command)
         {
-            IList<string> parameter = command.Split(" ".ToCharArray());
-            Add(command);
-            return new List<string>();
-        }
-
-        void Add(string parameter)
-        {
-            IExecuteOperationImp executeOperationImp = new ExecuteOperationImp.ExecuteOperationImp();
-            executeOperationImp.Add(parameter);
+            IList<string> parameters = command.Split(" ".ToCharArray(), 3);
+            executeOperationImp.Add(parameters[0], parameters[1], parameters.Count > 2 ? parameters[2] : "");
         }
     }
 }

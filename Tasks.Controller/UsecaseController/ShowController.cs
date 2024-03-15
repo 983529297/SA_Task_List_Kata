@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class ShowController : IUsecaseController
+    public class ShowController : UsecaseControllerBase
     {
-        public IList<string> Execute(string command)
+        public IList<string> Show(string command = "by project")
         {
-            IList<string> parameter = command.Split(" ".ToCharArray());
-            return show(command);
-        }
-
-        IList<string> show(string parameter)
-        {
-            IExecuteOperationImp executeOperationImp = new ExecuteOperationImp.ExecuteOperationImp();
-            return executeOperationImp.Show(parameter);
+            return executeOperationImp.Show(command);
         }
     }
 }

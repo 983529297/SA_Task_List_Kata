@@ -7,30 +7,31 @@ namespace Tasks.ExecuteOperationImp
 {
     public class OperationAdd : OperationBase, IOperateAndEnd
     {
-		private readonly string commandLine;
-		
-		public OperationAdd(string commandLine)
+		private readonly string mode;
+		private readonly string projectName;
+		private readonly string description;
+
+		public OperationAdd(string mode, string projectName, string description = "")
         {
-			this.commandLine = commandLine;
+            this.mode = mode;
+			this.projectName = projectName;
+			this.description = description;
         }
 
-		public void OperateAndEnd()
+        public void OperateAndEnd()
         {
-			Add(commandLine);
+			Add(mode, projectName, description);
         }
 
-		private void Add(string commandLine)
+		private void Add(string mode, string projectName, string description = "")
         {
-			var subcommandRest = commandLine.Split(" ".ToCharArray(), 2);
-			var subcommand = subcommandRest[0];
-			if (subcommand == "project")
+			if (mode == "project")
 			{
-				AddProject(subcommandRest[1]);
+				AddProject(projectName);
 			}
-			else if (subcommand == "task")
+			else if (mode == "task")
 			{
-				var projectTask = subcommandRest[1].Split(" ".ToCharArray(), 2);
-				AddTask(projectTask[0], projectTask[1]);
+				AddTask(projectName, description);
 			}
 		}
 

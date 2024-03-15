@@ -8,7 +8,6 @@ namespace Tasks.Main
 {
 	public sealed class TaskMain
 	{
-		private const string QUIT = "quit";
 		private IConsole console;
 
 		public static void Main(string[] args)

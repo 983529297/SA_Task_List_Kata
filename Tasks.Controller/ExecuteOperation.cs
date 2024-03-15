@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.ExecuteOperationImp;
-
+using Tasks.Controller.UsecaseController;
 namespace Tasks.Controller
 {
     public class ExecuteOperation : IExecuteOperation
@@ -16,30 +16,30 @@ namespace Tasks.Controller
             switch (command)
             {
                 case "show":
-                    return executeOperationImp.Show();
+                    return new ShowController().Show();
                 case "view":
-                    return executeOperationImp.Show(commandRest[1]);
+                    return new ShowController().Show(commandRest[1]);
                 case "deadline":
-                    executeOperationImp.Deadline(commandRest[1]);
+                    new deadlineController().Deadline(commandRest[1]);
                     break;
                 case "today":
-                    return executeOperationImp.Today();
+                    return new TodayController().Today();
                 case "add":
-                    executeOperationImp.Add(commandRest[1]);
+                    new AddController().Add(commandRest[1]);
                     break;
                 case "delete":
-                    executeOperationImp.Delete(commandRest[1]);
+                    new DeleteController().Delete(commandRest[1]);
                     break;
                 case "check":
-                    executeOperationImp.Check(commandRest[1]);
+                    new CheckController().Check(commandRest[1]);
                     break;
                 case "uncheck":
-                    executeOperationImp.Uncheck(commandRest[1]);
+                    new UncheckController().Uncheck(commandRest[1]);
                     break;
                 case "help":
-                    return executeOperationImp.Help();
+                    return new HelpController().Help();
                 default:
-                    return executeOperationImp.Error(command);
+                    return new ErrorController().Error(command);
             }
 
             return new List<string>();

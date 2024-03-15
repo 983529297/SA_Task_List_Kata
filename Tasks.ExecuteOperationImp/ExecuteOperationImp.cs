@@ -12,9 +12,9 @@ namespace Tasks.ExecuteOperationImp
 			return operationShow.OperateAndReturn();
 		}
 
-		public void Deadline(string commandLine)
+		public void Deadline(string idString, string deadlineString)
         {
-			IOperateAndEnd operationDeadline = new OperationDeadline(commandLine);
+			IOperateAndEnd operationDeadline = new OperationDeadline(idString, deadlineString);
 			operationDeadline.OperateAndEnd();
         }
 
@@ -24,9 +24,9 @@ namespace Tasks.ExecuteOperationImp
 			return operationToday.OperateAndReturn();
         }
 
-		public void Add(string commandLine)
+		public void Add(string mode, string projectName, string description = "")
 		{
-			IOperateAndEnd operationAdd = new OperationAdd(commandLine);
+			IOperateAndEnd operationAdd = new OperationAdd(mode, projectName, description);
 			operationAdd.OperateAndEnd();
 		}
 
