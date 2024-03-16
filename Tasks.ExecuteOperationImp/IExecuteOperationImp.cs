@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Input;
+using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.ExecuteOperationImp
 {
     public interface IExecuteOperationImp
     {
-        IList<string> Show(string commandRest = "by project");
-        void Deadline(string idString, string deadlineString);
+        IList<string> Show(ShowInputDto showDto);
+        void Deadline(DeadlineInputDto deadlineDto);
         IList<string> Today();
-        void Add(string mode, string projectName, string taskName = "");
-        void Delete(string commandRest);
-        void Check(string commandRest);
-        void Uncheck(string commandRest);
+        void Add(AddInputDto addDto);
+        void Delete(DeleteInputDto deleteDto);
+        void Check(DoCheckInputDto doCheckDto);
+        void Uncheck(DoCheckInputDto doCheckDto);
         IList<string> Help();
-        IList<string> Error(string command);
+        ErrorOutputDto Error(ErrorInputDto errorDto);
     }
 }

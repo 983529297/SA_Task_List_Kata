@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
@@ -9,7 +10,7 @@ namespace Tasks.Controller.UsecaseController
         public void Deadline(string command)
         {
             IList<string> parameters = command.Split(" ".ToCharArray(), 2);
-            executeOperationImp.Deadline(parameters[0], parameters[1]);
+            executeOperationImp.Deadline(new DeadlineInputDto { Id = int.Parse(parameters[0]), Deadline = DateTime.Parse(parameters[1]) });
         }
     }
 }

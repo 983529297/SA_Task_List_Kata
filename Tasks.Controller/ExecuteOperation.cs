@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp;
 using Tasks.Controller.UsecaseController;
+using Tasks.Controller.UsecasePresenter;
+using Tasks.ExecuteOperationImp.Output;
+
 namespace Tasks.Controller
 {
     public class ExecuteOperation : IExecuteOperation
     {
-        private readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp.ExecuteOperationImp();
 
         public IList<string> Execute(string commandLine)
         {
@@ -39,7 +40,8 @@ namespace Tasks.Controller
                 case "help":
                     return new HelpController().Help();
                 default:
-                    return new ErrorController().Error(command);
+                    ErrorOutputDto errorOutputDto = new ErrorController().Error(command);
+                    return new ErrorPresenter().OutputResult(errorOutputDto);
             }
 
             return new List<string>();

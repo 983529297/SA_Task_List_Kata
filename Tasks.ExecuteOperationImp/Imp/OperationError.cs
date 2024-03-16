@@ -1,26 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationError : OperationBase, IOperateAndReturn
+    public class OperationError : OperationBase
     {
-        private readonly string command;
-
-        public OperationError(string command)
+        public ErrorOutputDto Error(string command)
         {
-            this.command = command;
-        }
-
-        public IList<string> OperateAndReturn()
-        {
-            return Error(command);
-        }
-
-        private IList<string> Error(string command)
-        {
-            return new List<string> { string.Format("I don't know what the command \"{0}\" is.", command) };
+            return new ErrorOutputDto { ErrorCommand = command };
         }
     }
 }

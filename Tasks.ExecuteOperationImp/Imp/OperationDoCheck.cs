@@ -7,23 +7,22 @@ namespace Tasks.ExecuteOperationImp
 {
     public class OperationDoCheck : OperationBase, IOperateAndEnd
     {
-        private readonly string idString;
+        private readonly int id;
         private readonly bool done;
 
-        public OperationDoCheck(string idString, bool done)
+        public OperationDoCheck(int id, bool done)
         {
-            this.idString = idString;
+            this.id = id;
             this.done = done;
         }
 
         public void OperateAndEnd()
         {
-            SetDone(idString, done);
+            SetDone(id, done);
         }
 
-        public void SetDone(string idString, bool done)
+        public void SetDone(int id, bool done)
         {
-            int id = int.Parse(idString);
             taskListData.SetDone(id, done);
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
@@ -9,7 +10,13 @@ namespace Tasks.Controller.UsecaseController
         public void Add(string command)
         {
             IList<string> parameters = command.Split(" ".ToCharArray(), 3);
-            executeOperationImp.Add(parameters[0], parameters[1], parameters.Count > 2 ? parameters[2] : "");
+            if (parameters.Count > 2)
+            {
+                executeOperationImp.Add(new AddInputDto { Mode = parameters[0], ProjectName = parameters[1], Description = parameters[2] });
+            } else
+            {
+                executeOperationImp.Add(new AddInputDto { Mode = parameters[0], ProjectName = parameters[1] });
+            }
         }
     }
 }

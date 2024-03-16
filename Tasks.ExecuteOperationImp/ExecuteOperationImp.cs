@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Input;
+using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.ExecuteOperationImp
 {
     public class ExecuteOperationImp : IExecuteOperationImp
     {
-		public IList<string> Show(string sortedMethod = "by project")
+		public IList<string> Show(ShowInputDto showDto)
 		{
-			IOperateAndReturn operationShow = new OperationShowFactory().ShowMethod(sortedMethod);
+			IOperateAndReturn operationShow = new OperationShowFactory().ShowMethod(showDto.Mode);
 			return operationShow.OperateAndReturn();
 		}
 
-		public void Deadline(string idString, string deadlineString)
+		public void Deadline(DeadlineInputDto deadlineDto)
         {
-			IOperateAndEnd operationDeadline = new OperationDeadline(idString, deadlineString);
+			IOperateAndEnd operationDeadline = new OperationDeadline(deadlineDto.Id, deadlineDto.Deadline);
 			operationDeadline.OperateAndEnd();
         }
 
@@ -24,27 +26,27 @@ namespace Tasks.ExecuteOperationImp
 			return operationToday.OperateAndReturn();
         }
 
-		public void Add(string mode, string projectName, string description = "")
+		public void Add(AddInputDto addDto)
 		{
-			IOperateAndEnd operationAdd = new OperationAdd(mode, projectName, description);
+			IOperateAndEnd operationAdd = new OperationAdd(addDto.Mode, addDto.ProjectName, addDto.Description);
 			operationAdd.OperateAndEnd();
 		}
 
-		public void Delete(string idString)
+		public void Delete(DeleteInputDto deleteDto)
         {
-			IOperateAndEnd operationDelete = new OperationDelete(idString);
+			IOperateAndEnd operationDelete = new OperationDelete(deleteDto.Id);
 			operationDelete.OperateAndEnd();
         }
 
-		public void Check(string idString)
+		public void Check(DoCheckInputDto doCheckDto)
 		{
-			IOperateAndEnd operationDoCheck = new OperationDoCheck(idString, true);
+			IOperateAndEnd operationDoCheck = new OperationDoCheck(doCheckDto.Id, true);
 			operationDoCheck.OperateAndEnd();
 		}
 
-		public void Uncheck(string idString)
+		public void Uncheck(DoCheckInputDto doCheckDto)
 		{
-			IOperateAndEnd operationDoCheck = new OperationDoCheck(idString, false);
+			IOperateAndEnd operationDoCheck = new OperationDoCheck(doCheckDto.Id, false);
 			operationDoCheck.OperateAndEnd();
 		}
 
@@ -54,10 +56,10 @@ namespace Tasks.ExecuteOperationImp
 			return operationHelp.OperateAndReturn();
 		}
 
-		public IList<string> Error(string command)
+		public ErrorOutputDto Error(ErrorInputDto errorDto)
 		{
-			IOperateAndReturn operationError = new OperationError(command);
-			return operationError.OperateAndReturn();
+			OperationError operationError = new OperationError();
+			return operationError.Error(errorDto.Command);
 		}
 	}
 }

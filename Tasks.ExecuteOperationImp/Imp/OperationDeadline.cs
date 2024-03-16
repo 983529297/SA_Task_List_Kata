@@ -7,24 +7,22 @@ namespace Tasks.ExecuteOperationImp
 {
     public class OperationDeadline : OperationBase, IOperateAndEnd
     {
-        private readonly string idString;
-        private readonly string deadlineString;
+        private readonly int id;
+        private readonly DateTime deadline;
 
-        public OperationDeadline(string idString, string deadlineString)
+        public OperationDeadline(int id, DateTime deadline)
         {
-            this.idString = idString;
-            this.deadlineString = deadlineString;
+            this.id = id;
+            this.deadline = deadline;
         }
 
         public void OperateAndEnd()
         {
-            Deadline(idString, deadlineString);
+            Deadline(id, deadline);
         }
 
-        private void Deadline(string idString, string deadlineString)
+        private void Deadline(int id, DateTime deadline)
         {
-            int id = int.Parse(idString);
-            DateTime deadline = DateTime.Parse(deadlineString);
             taskListData.SetDeadline(id, deadline);
         }
     }
