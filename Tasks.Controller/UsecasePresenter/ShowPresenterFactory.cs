@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Imp;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Controller.UsecasePresenter
 {
-    public class OperationShowFactory
+    public class ShowPresenterFactory
     {
-        public IOperationShow ShowMethod(string sortedMethod)
+        public IShowPresenter ShowPresenterMethod(string sortedMethod = "by project")
         {
             switch (sortedMethod)
             {
                 case "by project":
-                    return new OperationShow();
+                    return new ShowPresenter();
                 case "by deadline":
-                    return new OperationShowViewByDeadline();
+                    return new ViewByDeadlinePresenter();
                 case "by date":
-                    return new OperationShowViewByDate();
+                    return new ViewByDatePresenter();
                 default:
                     throw new Exception("Could not find the command");
             }

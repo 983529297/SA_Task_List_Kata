@@ -5,7 +5,7 @@ using Tasks.Data;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationAdd : OperationBase, IOperateAndEnd
+    public class OperationAdd : OperationBase
     {
 		private readonly string mode;
 		private readonly string projectName;

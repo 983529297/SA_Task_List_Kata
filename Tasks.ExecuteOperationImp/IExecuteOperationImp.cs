@@ -8,14 +8,14 @@ namespace Tasks.ExecuteOperationImp
 {
     public interface IExecuteOperationImp
     {
-        IList<string> Show(ShowInputDto showDto);
+        ShowOutputDto Show(ShowInputDto showDto);
         void Deadline(DeadlineInputDto deadlineDto);
-        IList<string> Today();
+        TodayOutputDto Today();
         void Add(AddInputDto addDto);
         void Delete(DeleteInputDto deleteDto);
         void Check(DoCheckInputDto doCheckDto);
         void Uncheck(DoCheckInputDto doCheckDto);
-        IList<string> Help();
+        HelpOutputDto Help();
         ErrorOutputDto Error(ErrorInputDto errorDto);
     }
 }

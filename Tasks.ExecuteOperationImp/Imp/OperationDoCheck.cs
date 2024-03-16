@@ -5,7 +5,7 @@ using Tasks.Data;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationDoCheck : OperationBase, IOperateAndEnd
+    public class OperationDoCheck : OperationBase
     {
         private readonly int id;
         private readonly bool done;

@@ -5,7 +5,7 @@ using Tasks.Data;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationDelete : OperationBase, IOperateAndEnd
+    public class OperationDelete : OperationBase
     {
         private readonly int id;
 

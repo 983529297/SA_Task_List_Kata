@@ -5,7 +5,7 @@ using Tasks.Data;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationDeadline : OperationBase, IOperateAndEnd
+    public class OperationDeadline : OperationBase
     {
         private readonly int id;
         private readonly DateTime deadline;

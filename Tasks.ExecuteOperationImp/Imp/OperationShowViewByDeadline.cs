@@ -2,30 +2,42 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Data;
+using Tasks.ExecuteOperationImp.Imp;
+using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationShowViewByDeadline : OperationBase, IOperateAndReturn
+    public class OperationShowViewByDeadline : OperationBase, IOperationShow
     {
-        public IList<string> OperateAndReturn()
+        public ShowOutputDto Show()
         {
-            return Show();
-        }
-
-        private IList<string> Show()
-        {
-            IDictionary<string, IList<TaskListViewByDeadlineArg>> todayTasks = taskListData.GetTaskListOrderByDeadline();
-            IList<string> showString = new List<string>();
-            foreach (var project in todayTasks)
+            IDictionary<string, IList<TaskListViewByDeadlineArg>> deadlineTasks = taskListData.GetTaskListOrderByDeadline();
+            //IList<string> showString = new List<string>();
+            //foreach (var project in deadlineTasks)
+            //{
+            //    showString.Add(project.Key);
+            //    foreach (var taskAttribute in project.Value)
+            //    {
+            //        showString.Add(string.Format("    [{0}] {1}: {2}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description));
+            //    }
+            //    showString.Add("");
+            //}
+            ///
+            ShowOutputDto showOutputDto = new ShowOutputDto();
+            foreach (var deadlineTaskList in deadlineTasks)
             {
-                showString.Add(project.Key);
-                foreach (var taskAttribute in project.Value)
+                foreach (var task in deadlineTaskList.Value)
                 {
-                    showString.Add(string.Format("    [{0}] {1}: {2}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description));
+                    string deadline = deadlineTaskList.Key;
+                    if (!showOutputDto.TaskListWithOrder.ContainsKey(deadline))
+                    {
+                        showOutputDto.TaskListWithOrder[deadline] = new List<ShowOutputArg>();
+                    }
+                    showOutputDto.TaskListWithOrder[deadline].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description });
                 }
-                showString.Add("");
             }
-            return showString;
+            ////
+            return showOutputDto;
         }
     }
 }

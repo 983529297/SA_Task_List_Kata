@@ -17,14 +17,19 @@ namespace Tasks.Controller
             switch (command)
             {
                 case "show":
-                    return new ShowController().Show();
+                    ShowOutputDto showOutputDtoShow = new ShowController().Show();
+                    IShowPresenter showPresenter = new ShowPresenterFactory().ShowPresenterMethod();
+                    return showPresenter.OutputResult(showOutputDtoShow);
                 case "view":
-                    return new ShowController().Show(commandRest[1]);
+                    ShowOutputDto showOutputDtoView = new ShowController().Show(commandRest[1]);
+                    IShowPresenter viewPresenter = new ShowPresenterFactory().ShowPresenterMethod();
+                    return viewPresenter.OutputResult(showOutputDtoView);
                 case "deadline":
                     new deadlineController().Deadline(commandRest[1]);
                     break;
                 case "today":
-                    return new TodayController().Today();
+                    TodayOutputDto todayOutputDto = new TodayController().Today();
+                    return new TodayPresenter().OutputResult(todayOutputDto);
                 case "add":
                     new AddController().Add(commandRest[1]);
                     break;
@@ -38,7 +43,8 @@ namespace Tasks.Controller
                     new UncheckController().Uncheck(commandRest[1]);
                     break;
                 case "help":
-                    return new HelpController().Help();
+                    HelpOutputDto helpOutputDto = new HelpController().Help();
+                    return new HelpPresenter().OutputResult(helpOutputDto);
                 default:
                     ErrorOutputDto errorOutputDto = new ErrorController().Error(command);
                     return new ErrorPresenter().OutputResult(errorOutputDto);

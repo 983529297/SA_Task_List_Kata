@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.Data;
 
 namespace Tasks.ExecuteOperationImp.Output
 {
     public class TodayOutputDto
     {
-        public int Id { get; set; }
+        public IDictionary<string, IList<TaskListTodayArg>> TaskListOfToday { get; set; }
 
-        public string ProjectName { get; set; }
-
-        public string Description { get; set; }
-
-        public bool Check { get; set; }
-
-        public DateTime Date { get; set; }
+        public TodayOutputDto()
+        {
+            TaskListOfToday = new Dictionary<string, IList<TaskListTodayArg>>();
+        }
     }
 }

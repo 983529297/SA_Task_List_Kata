@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.ExecuteOperationImp
 {
-    public class OperationHelp : OperationBase, IOperateAndReturn
+    public class OperationHelp : OperationBase
     {
-        public IList<string> OperateAndReturn()
-        {
-            return Help();
-        }
-
-        private IList<string> Help()
+        public HelpOutputDto Help()
         {
             IList<string> helpString = new List<string> ();
 
@@ -28,7 +24,7 @@ namespace Tasks.ExecuteOperationImp
             helpString.Add("  uncheck <task ID>");
             helpString.Add("");
 
-            return helpString;
+            return new HelpOutputDto { ListOfCommand = helpString };
         }
     }
 }
