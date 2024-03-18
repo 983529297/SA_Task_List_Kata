@@ -12,17 +12,6 @@ namespace Tasks.ExecuteOperationImp
         public ShowOutputDto Show()
         {
             IDictionary<string, IList<TaskListArg>> Tasks = taskListData.GetTaskList();
-            //IList<string> showString = new List<string>();
-            //foreach (var project in todayTasks)
-            //{
-            //    showString.Add(project.Key);
-            //    foreach (var taskAttribute in project.Value)
-            //    {
-            //        showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description, taskAttribute.deadline == "" ? "" : " " + taskAttribute.deadline));
-            //    }
-            //    showString.Add("");
-            //}
-            ///
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var TaskList in Tasks)
             {
@@ -36,7 +25,6 @@ namespace Tasks.ExecuteOperationImp
                     showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description, Deadline = task.deadline });
                 }
             }
-            ////
             return showOutputDto;
         }
     }

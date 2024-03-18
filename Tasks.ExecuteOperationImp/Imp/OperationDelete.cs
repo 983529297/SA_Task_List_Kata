@@ -7,19 +7,7 @@ namespace Tasks.ExecuteOperationImp
 {
     public class OperationDelete : OperationBase
     {
-        private readonly int id;
-
-        public OperationDelete(int id)
-        {
-            this.id = id;
-        }
-
-        public void OperateAndEnd()
-        {
-            Delete(id);
-        }
-
-        private void Delete(int id)
+        public void Delete(int id)
         {
             taskListData.DeleteTask(id);
         }

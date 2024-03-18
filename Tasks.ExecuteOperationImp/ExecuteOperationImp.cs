@@ -17,8 +17,8 @@ namespace Tasks.ExecuteOperationImp
 
 		public void Deadline(DeadlineInputDto deadlineDto)
         {
-			OperationDeadline operationDeadline = new OperationDeadline(deadlineDto.Id, deadlineDto.Deadline);
-			operationDeadline.OperateAndEnd();
+			OperationDeadline operationDeadline = new OperationDeadline();
+			operationDeadline.Deadline(deadlineDto.Id, deadlineDto.Deadline);
         }
 
 		public TodayOutputDto Today()
@@ -29,26 +29,26 @@ namespace Tasks.ExecuteOperationImp
 
 		public void Add(AddInputDto addDto)
 		{
-			OperationAdd operationAdd = new OperationAdd(addDto.Mode, addDto.ProjectName, addDto.Description);
-			operationAdd.OperateAndEnd();
+			OperationAdd operationAdd = new OperationAdd();
+			operationAdd.Add(addDto.Mode, addDto.ProjectName, addDto.Description);
 		}
 
 		public void Delete(DeleteInputDto deleteDto)
         {
-			OperationDelete operationDelete = new OperationDelete(deleteDto.Id);
-			operationDelete.OperateAndEnd();
+			OperationDelete operationDelete = new OperationDelete();
+			operationDelete.Delete(deleteDto.Id);
         }
 
 		public void Check(DoCheckInputDto doCheckDto)
 		{
-			OperationDoCheck operationDoCheck = new OperationDoCheck(doCheckDto.Id, true);
-			operationDoCheck.OperateAndEnd();
+			OperationDoCheck operationDoCheck = new OperationDoCheck();
+			operationDoCheck.SetDone(doCheckDto.Id, true);
 		}
 
 		public void Uncheck(DoCheckInputDto doCheckDto)
 		{
-			OperationDoCheck operationDoCheck = new OperationDoCheck(doCheckDto.Id, false);
-			operationDoCheck.OperateAndEnd();
+			OperationDoCheck operationDoCheck = new OperationDoCheck();
+			operationDoCheck.SetDone(doCheckDto.Id, false);
 		}
 
 		public HelpOutputDto Help()

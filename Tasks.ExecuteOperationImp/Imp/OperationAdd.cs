@@ -7,23 +7,7 @@ namespace Tasks.ExecuteOperationImp
 {
     public class OperationAdd : OperationBase
     {
-		private readonly string mode;
-		private readonly string projectName;
-		private readonly string description;
-
-		public OperationAdd(string mode, string projectName, string description = "")
-        {
-            this.mode = mode;
-			this.projectName = projectName;
-			this.description = description;
-        }
-
-        public void OperateAndEnd()
-        {
-			Add(mode, projectName, description);
-        }
-
-		private void Add(string mode, string projectName, string description = "")
+		public void Add(string mode, string projectName, string description = "")
         {
 			if (mode == "project")
 			{
