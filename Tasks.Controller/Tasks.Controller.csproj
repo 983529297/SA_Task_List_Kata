@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
+    <ProjectReference Include="..\Tasks.IO\Tasks.IO.csproj" />
     <ProjectReference Include="..\Tasks.Usecase\Tasks.Usecase.csproj" />
   </ItemGroup>
 

@@ -6,7 +6,7 @@
     <StartupObject>Tasks.Main.TaskMain</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
+    <ProjectReference Include="..\Tasks.IO\Tasks.IO.csproj" />
     <ProjectReference Include="..\Tasks.Controller\Tasks.Controller.csproj" />
   </ItemGroup>
 </Project>

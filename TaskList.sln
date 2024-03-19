@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Tests", "Tasks.Tests\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Data", "Tasks.Data\Tasks.Data.csproj", "{8CDC6645-E546-40CB-94E2-071A5AA23F1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Console", "Tasks.Console\Tasks.Console.csproj", "{0AA1A59B-508D-46A5-98E5-42A84EB4CB60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.IO", "Tasks.IO\Tasks.IO.csproj", "{0AA1A59B-508D-46A5-98E5-42A84EB4CB60}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Usecase", "Tasks.Usecase\Tasks.Usecase.csproj", "{8B2A3E0D-8DED-45F4-8C0D-E5089CBD84EE}"
 	ProjectSection(ProjectDependencies) = postProject
