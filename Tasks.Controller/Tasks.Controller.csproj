@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
-    <ProjectReference Include="..\Tasks.ExecuteOperationImp\Tasks.ExecuteOperationImp.csproj" />
+    <ProjectReference Include="..\Tasks.Usecase\Tasks.Usecase.csproj" />
   </ItemGroup>
 
 </Project>

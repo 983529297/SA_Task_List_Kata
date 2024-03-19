@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32126.315
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Main", "Tasks.Main\Tasks.Main.csproj", "{15B0CBFF-BE62-420C-878A-94FC6590A01D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -14,12 +14,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Data", "Tasks.Data\Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Console", "Tasks.Console\Tasks.Console.csproj", "{0AA1A59B-508D-46A5-98E5-42A84EB4CB60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.ExecuteOperationImp", "Tasks.ExecuteOperationImp\Tasks.ExecuteOperationImp.csproj", "{8B2A3E0D-8DED-45F4-8C0D-E5089CBD84EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Usecase", "Tasks.Usecase\Tasks.Usecase.csproj", "{8B2A3E0D-8DED-45F4-8C0D-E5089CBD84EE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8CDC6645-E546-40CB-94E2-071A5AA23F1C} = {8CDC6645-E546-40CB-94E2-071A5AA23F1C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks.Controller", "Tasks.Controller\Tasks.Controller.csproj", "{A877408E-984C-4E0B-9BB1-01A4FCC88ADD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Controller", "Tasks.Controller\Tasks.Controller.csproj", "{A877408E-984C-4E0B-9BB1-01A4FCC88ADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

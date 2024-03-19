@@ -8,6 +8,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Tasks.Console\Tasks.Console.csproj" />
     <ProjectReference Include="..\Tasks.Controller\Tasks.Controller.csproj" />
-    <ProjectReference Include="..\Tasks.ExecuteOperationImp\Tasks.ExecuteOperationImp.csproj" />
   </ItemGroup>
 </Project>
