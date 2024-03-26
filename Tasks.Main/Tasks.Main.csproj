@@ -7,6 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tasks.IO\Tasks.IO.csproj" />
-    <ProjectReference Include="..\Tasks.Controller\Tasks.Controller.csproj" />
+    <ProjectReference Include="..\Tasks.Adapter\Tasks.Adapter.csproj" />
   </ItemGroup>
 </Project>
