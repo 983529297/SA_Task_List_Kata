@@ -7,15 +7,8 @@ using Tasks.Usecase.Output;
 
 namespace Tasks.Usecase
 {
-    public class OperationDeadline : OperationBase, IOperation<VoidOutputDto, DeadlineInputDto>
+    public class OperationDeadline : OperationBase
     {
-        public VoidOutputDto ExecuteOperation(DeadlineInputDto deadlineInputDto)
-        {
-            taskListData.SetDeadline(deadlineInputDto.Id, deadlineInputDto.Deadline);
-
-            return new VoidOutputDto();
-        }
-
         public void Deadline(int id, DateTime deadline)
         {
             taskListData.SetDeadline(id, deadline);

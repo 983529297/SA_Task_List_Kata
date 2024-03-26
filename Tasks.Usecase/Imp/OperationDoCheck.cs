@@ -7,14 +7,8 @@ using Tasks.Usecase.Output;
 
 namespace Tasks.Usecase
 {
-    public class OperationDoCheck : OperationBase, IOperation<VoidOutputDto, DoCheckInputDto>
+    public class OperationDoCheck : OperationBase
     {
-        public VoidOutputDto ExecuteOperation(DoCheckInputDto doCheckInputDto)
-        {
-            taskListData.SetDone(doCheckInputDto.Id, doCheckInputDto.Done);
-            return new VoidOutputDto();
-        }
-
         public void SetDone(int id, bool done)
         {
             taskListData.SetDone(id, done);
