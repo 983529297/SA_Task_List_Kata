@@ -6,14 +6,14 @@ namespace Tasks.Data
 {
     public class Task
     {
-        public long Id { get; set; }
+        public long ID { get; set; }
 
         public string Description { get; set; }
 
         public bool Done { get; set; }
 
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
-        public DateTime? deadline { get; set; }
+        public DateTime? Deadline { get; set; }
     }
 }
