@@ -7,7 +7,7 @@ namespace Tasks.Controller.UsecaseController
 {
     public abstract class UsecaseControllerBase
     {
-        public readonly IExecuteOperationImp executeOperationImp = new Usecase.ExecuteOperationImp();
+        public readonly IExecuteOperationImp executeOperationImp = new ExecuteOperationImp();
 
     }
 }
