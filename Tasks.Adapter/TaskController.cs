@@ -16,33 +16,10 @@ namespace Tasks.Controller
             this.console = console;
         }
 
-        public void Run()
+        public IList<string> Run(string commandLine)
         {
-            while (true)
-            {
-			    IExecution executeImp = new Execution();
-                console.Write("> ");
-                var commandLine = console.ReadLine();
-                if (commandLine == QUIT)
-                {
-                    break;
-                }
-                try
-                {
-                    IList<string> result = executeImp.Execute(commandLine);
-                    if (result.Count != 0)
-                    {
-                        foreach (var line in result)
-                        {
-                            console.WriteLine(line);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    console.WriteLine("Error : " + ex.Message);
-                }
-            }
+			IExecution executeImp = new Execution();
+            return executeImp.Execute(commandLine);
         }
     }
 }
