@@ -20,7 +20,7 @@ namespace Tasks.Controller
         {
             while (true)
             {
-			    IExecuteOperation executeImp = new ExecuteOperation();
+			    IExecution executeImp = new Execution();
                 console.Write("> ");
                 var commandLine = console.ReadLine();
                 if (commandLine == QUIT)

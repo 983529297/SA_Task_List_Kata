@@ -7,7 +7,7 @@ using Tasks.ExecuteOperationImp.Output;
 
 namespace Tasks.Controller
 {
-    public class ExecuteOperation : IExecuteOperation
+    public class Execution : IExecution
     {
 
         public IList<string> Execute(string commandLine)
