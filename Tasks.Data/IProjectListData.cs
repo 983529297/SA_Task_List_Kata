@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Data
 {
-    public interface ITaskListData
+    public interface IProjectListData
     {
         IDictionary<string, IList<TaskListArg>> GetTaskList();
 

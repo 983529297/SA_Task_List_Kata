@@ -4,16 +4,16 @@ using System.Linq;
 
 namespace Tasks.Data
 {
-    public class TaskListData : ITaskListData
+    public class ProjectListData : IProjectListData
     {
         private readonly IList<Project> projectList = new List<Project>();
         private int Id = 0;
         private static readonly object lockObject = new object();
-        private static TaskListData instance = null;
+        private static ProjectListData instance = null;
 
-        private TaskListData() { }
+        private ProjectListData() { }
 
-        public static TaskListData Instance
+        public static ProjectListData Instance
         {
             get
             {
@@ -23,7 +23,7 @@ namespace Tasks.Data
                     {
                         if (instance == null)
                         {
-                            instance = new TaskListData();
+                            instance = new ProjectListData();
 
                         }
                     }

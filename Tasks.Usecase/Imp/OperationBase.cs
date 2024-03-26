@@ -7,6 +7,6 @@ namespace Tasks.Usecase
 {
     public class OperationBase
     {
-        protected ITaskListData taskListData = TaskListData.Instance;
+        protected IProjectListData taskListData = ProjectListData.Instance;
     }
 }
