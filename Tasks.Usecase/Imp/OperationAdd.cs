@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Data;
+using Tasks.Usecase.Input;
+using Tasks.Usecase.Output;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
-    public class OperationAdd : OperationBase
-    {
+	public class OperationAdd : OperationBase
+	{
 		public void Add(string mode, string projectName, string description = "")
-        {
+		{
 			if (mode == "project")
 			{
 				AddProject(projectName);

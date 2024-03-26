@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Input;
+using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {

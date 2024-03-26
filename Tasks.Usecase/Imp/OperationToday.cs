@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Data;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Input;
+using Tasks.Usecase.Output;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
     public class OperationToday : OperationBase
     {
@@ -12,7 +13,7 @@ namespace Tasks.ExecuteOperationImp
         {
             IDictionary<string, IList<TaskListTodayArg>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
 
-            return new TodayOutputDto { TaskListOfToday = todayTasks};
+            return new TodayOutputDto { TaskListOfToday = todayTasks };
         }
     }
 }

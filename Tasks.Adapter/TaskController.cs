@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tasks.ExecuteOperationImp;
+using Tasks.Usecase;
 using Tasks.Console;
 
 namespace Tasks.Controller
@@ -20,7 +20,7 @@ namespace Tasks.Controller
         {
             while (true)
             {
-			    IExecuteOperation executeImp = new ExecuteOperation();
+			    IExecution executeImp = new Execution();
                 console.Write("> ");
                 var commandLine = console.ReadLine();
                 if (commandLine == QUIT)

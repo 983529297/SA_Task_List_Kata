@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Tasks.Controller.UsecaseController;
 using Tasks.Controller.UsecasePresenter;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Output;
 
 namespace Tasks.Controller
 {
-    public class ExecuteOperation : IExecuteOperation
+    public class Execution : IExecution
     {
 
         public IList<string> Execute(string commandLine)
@@ -22,7 +22,7 @@ namespace Tasks.Controller
                     return showPresenter.OutputResult(showOutputDtoShow);
                 case "view":
                     ShowOutputDto showOutputDtoView = new ShowController().Show(commandRest[1]);
-                    IShowPresenter viewPresenter = new ShowPresenterFactory().ShowPresenterMethod();
+                    IShowPresenter viewPresenter = new ShowPresenterFactory().ShowPresenterMethod(commandRest[1]);
                     return viewPresenter.OutputResult(showOutputDtoView);
                 case "deadline":
                     new deadlineController().Deadline(commandRest[1]);

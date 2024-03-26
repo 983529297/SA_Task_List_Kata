@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Output;
 
 namespace Tasks.Controller.UsecasePresenter
 {
-    public class ShowPresenter : IShowPresenter
+    public class ViewByDeadlinePresenter : IShowPresenter
     {
         public IList<string> OutputResult(ShowOutputDto showOutputDto)
         {
@@ -15,7 +15,7 @@ namespace Tasks.Controller.UsecasePresenter
                 showString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description, taskAttribute.Deadline == "" ? "" : " " + taskAttribute.Deadline));
+                    showString.Add(string.Format("    [{0}] {1}: {2}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description));
                 }
                 showString.Add("");
             }
