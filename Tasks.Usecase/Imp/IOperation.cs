@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Usecase.Imp
+namespace Tasks.Usecase
 {
     public interface IOperation<output, input>
     {
