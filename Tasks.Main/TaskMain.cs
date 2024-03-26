@@ -23,7 +23,7 @@ namespace Tasks.Main
 
 		public void Run()
 		{
-            TaskController taskController = new TaskController(console);
+            Execution execution = new Execution();
 			while (true)
             {
                 console.Write("> ");
@@ -34,7 +34,7 @@ namespace Tasks.Main
                 }
                 try
                 {
-                    IList<string> result = taskController.Run(commandLine);
+                    IList<string> result = execution.Execute(commandLine);
                     if (result.Count != 0)
                     {
                         foreach (var line in result)
