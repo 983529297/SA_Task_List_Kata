@@ -4,9 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Input
 {
-    public class DoCheckInputDto
+    public class EmptyInputDto
     {
-        public int Id { get; set; }
-        public bool Done { get; set; }
     }
 }
