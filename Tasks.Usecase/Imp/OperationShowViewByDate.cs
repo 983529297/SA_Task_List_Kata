@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Data;
-using Tasks.ExecuteOperationImp.Imp;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Imp;
+using Tasks.Usecase.Output;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
     public class OperationShowViewByDate : OperationBase, IOperationShow
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.ExecuteOperationImp.Input
+namespace Tasks.Usecase.Input
 {
     public class DeleteInputDto
     {

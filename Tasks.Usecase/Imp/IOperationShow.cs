@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Output;
 
-namespace Tasks.ExecuteOperationImp.Imp
+namespace Tasks.Usecase.Imp
 {
     public interface IOperationShow
     {

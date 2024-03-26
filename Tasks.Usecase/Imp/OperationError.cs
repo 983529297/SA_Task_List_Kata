@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Output;
+using Tasks.Usecase.Output;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
     public class OperationError : OperationBase
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tasks.Data;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
     public class OperationDelete : OperationBase
     {

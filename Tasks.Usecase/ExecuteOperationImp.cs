@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.ExecuteOperationImp.Input;
-using Tasks.ExecuteOperationImp.Output;
-using Tasks.ExecuteOperationImp.Imp;
+using Tasks.Usecase.Input;
+using Tasks.Usecase.Output;
+using Tasks.Usecase.Imp;
 
-namespace Tasks.ExecuteOperationImp
+namespace Tasks.Usecase
 {
     public class ExecuteOperationImp : IExecuteOperationImp
     {
