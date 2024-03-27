@@ -112,7 +112,7 @@ namespace Tasks.Data
             {
                 if (project.TaskList.Contains(task))
                 {
-                    project.TaskList.Remove(task);
+                    project.DeleteTask(task);
                 }
             }
         }
@@ -138,7 +138,7 @@ namespace Tasks.Data
             {
                 if (project.ID == projectID)
                 {
-                    project.TaskList.Add(new Task { ID = NextId(), Description = description, Done = false, Date = DateTime.Now.Date });
+                    project.AddTask(new Task { ID = NextId(), Description = description, Done = false, Date = DateTime.Now.Date });
                 }
             }
         }
@@ -147,17 +147,15 @@ namespace Tasks.Data
         {
             foreach (var project in projectList)
             {
-                foreach (var task in project.TaskList)
+                identifiedTask = project.FindTaskById(id);
+                if (identifiedTask != null)
                 {
-                    if (task.ID == id)
-                    {
-                        identifiedTask = task;
-                        return;
-                    }
+                    return;
                 }
             }
             throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
         }
+
         public void SetDeadline(int id, DateTime deadline)
         {
             FindTaskById(id, out Task task);
