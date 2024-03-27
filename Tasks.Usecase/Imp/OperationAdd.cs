@@ -7,9 +7,23 @@ using Tasks.Usecase.Output;
 
 namespace Tasks.Usecase
 {
-	public class OperationAdd : OperationBase
-	{
-		public void Add(string mode, string projectName, string description = "")
+	public class OperationAdd : OperationBase, IOperation<VoidOutputDto, AddInputDto>
+    {
+        public VoidOutputDto ExecuteOperation(AddInputDto addInputDto)
+        {
+            if (addInputDto.Mode == "project")
+            {
+                AddProject(addInputDto.ProjectName);
+            }
+            else if (addInputDto.Mode == "task")
+            {
+                AddTask(addInputDto.ProjectName, addInputDto.Description);
+            }
+
+            return new VoidOutputDto();
+        }
+
+        public void Add(string mode, string projectName, string description = "")
 		{
 			if (mode == "project")
 			{
