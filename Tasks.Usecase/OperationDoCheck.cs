@@ -14,10 +14,5 @@ namespace Tasks.Usecase
             taskListData.SetDone(doCheckInputDto.Id, doCheckInputDto.Done);
             return new VoidOutputDto();
         }
-
-        public void SetDone(int id, bool done)
-        {
-            taskListData.SetDone(id, done);
-        }
     }
 }

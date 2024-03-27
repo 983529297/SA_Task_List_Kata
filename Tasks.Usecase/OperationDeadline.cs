@@ -15,10 +15,5 @@ namespace Tasks.Usecase
 
             return new VoidOutputDto();
         }
-
-        public void Deadline(int id, DateTime deadline)
-        {
-            taskListData.SetDeadline(id, deadline);
-        }
     }
 }

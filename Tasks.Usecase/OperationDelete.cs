@@ -14,10 +14,5 @@ namespace Tasks.Usecase
             taskListData.DeleteTask(deleteInputDto.Id);
             return new VoidOutputDto();
         }
-
-        public void Delete(int id)
-        {
-            taskListData.DeleteTask(id);
-        }
     }
 }

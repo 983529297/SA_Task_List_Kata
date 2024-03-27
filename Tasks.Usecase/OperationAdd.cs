@@ -23,18 +23,6 @@ namespace Tasks.Usecase
             return new VoidOutputDto();
         }
 
-        public void Add(string mode, string projectName, string description = "")
-		{
-			if (mode == "project")
-			{
-				AddProject(projectName);
-			}
-			else if (mode == "task")
-			{
-				AddTask(projectName, description);
-			}
-		}
-
 		private void AddProject(string name)
 		{
 			taskListData.AddProject(name);

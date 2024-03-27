@@ -15,12 +15,5 @@ namespace Tasks.Usecase
 
             return new TodayOutputDto { TaskListOfToday = todayTasks };
         }
-
-        public TodayOutputDto Today()
-        {
-            IDictionary<string, IList<TaskListTodayArg>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
-
-            return new TodayOutputDto { TaskListOfToday = todayTasks };
-        }
     }
 }

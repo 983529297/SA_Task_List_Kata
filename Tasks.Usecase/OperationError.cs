@@ -12,10 +12,5 @@ namespace Tasks.Usecase
         {
             return new ErrorOutputDto { ErrorCommand = errorInputDto.Command };
         }
-
-        public ErrorOutputDto Error(string command)
-        {
-            return new ErrorOutputDto { ErrorCommand = command };
-        }
     }
 }
