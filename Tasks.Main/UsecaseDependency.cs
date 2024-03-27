@@ -15,6 +15,7 @@ namespace Tasks.Main
             usecaseMap = new Dictionary<string, OperationBase>()
             {
                 {"show", new OperationShow() },
+                {"view", new OperationShow() },
                 {"add", new OperationAdd() },
                 {"check", new OperationDoCheck() },
                 {"uncheck", new OperationDoCheck() },

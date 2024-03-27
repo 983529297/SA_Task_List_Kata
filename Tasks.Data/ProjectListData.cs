@@ -119,7 +119,10 @@ namespace Tasks.Data
 
         public void AddProject(string name)
         {
-            projectList.Add(new Project { ID = name, TaskList = new List<Task>()});
+			if (!CheckProject(name))
+            {
+                projectList.Add(new Project { ID = name, TaskList = new List<Task>() });
+            }
         }
 
         public bool CheckProject(string name)
