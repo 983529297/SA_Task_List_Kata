@@ -34,7 +34,7 @@ namespace Tasks.Main
                 }
                 try
                 {
-                    IList<string> result = execution.Execute(commandLine);
+                    IList<string> result = execution.Execute(new UsecaseDependency().usecaseMap, commandLine);
                     if (result.Count != 0)
                     {
                         foreach (var line in result)

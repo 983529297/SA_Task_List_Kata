@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Usecase.Output;
+using Tasks.Usecase;
+using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class TodayController : UsecaseControllerBase
+    public class TodayController
     {
-        public TodayOutputDto Today()
+        public TodayOutputDto Today(IOperation<TodayOutputDto, EmptyInputDto> operation)
         {
-            return executeOperationImp.Today();
+            return operation.ExecuteOperation(new EmptyInputDto());
+            //return executeOperationImp.Today();
         }
     }
 }
