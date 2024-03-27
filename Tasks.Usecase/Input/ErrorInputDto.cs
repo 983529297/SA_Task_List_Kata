@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Input
 {
-    public class ErrorInputDto
+    public class ErrorInputDto : IInputDto
     {
         public string Command { get; set; }
     }

@@ -5,7 +5,7 @@ using Tasks.Data;
 
 namespace Tasks.Usecase.Output
 {
-    public class TodayOutputDto
+    public class TodayOutputDto : IOutputDto
     {
         public IDictionary<string, IList<TaskListTodayArg>> TaskListOfToday { get; set; }
 

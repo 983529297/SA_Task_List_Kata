@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Output
 {
-    public class ShowOutputArg
+    public class ShowOutputArg : IOutputDto
     {
         public string Id { get; set; }
 

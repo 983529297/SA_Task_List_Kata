@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Output
 {
-    public class ShowOutputDto
+    public class ShowOutputDto : IOutputDto
     {
         public IDictionary<string, IList<ShowOutputArg>> TaskListWithOrder { get; set; }
 
