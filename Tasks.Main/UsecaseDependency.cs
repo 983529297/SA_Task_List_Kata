@@ -9,10 +9,10 @@ namespace Tasks.Main
 {
     public class UsecaseDependency
     {
-        public IDictionary<string, object> usecaseMap;
+        public IDictionary<string, OperationBase> usecaseMap;
         public UsecaseDependency()
         {
-            usecaseMap = new Dictionary<string, object>()
+            usecaseMap = new Dictionary<string, OperationBase>()
             {
                 {"show", new OperationShow() },
                 {"add", new OperationAdd() },

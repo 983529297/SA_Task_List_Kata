@@ -12,7 +12,7 @@ namespace Tasks.Controller
     public class Execution : IExecution
     {
 
-        public IList<string> Execute(IDictionary<string, object> usecaseMap, string commandLine)
+        public IList<string> Execute(IDictionary<string, OperationBase> usecaseMap, string commandLine)
         {
             var commandRest = commandLine.Split(" ".ToCharArray(), 2);
             var command = commandRest[0];
