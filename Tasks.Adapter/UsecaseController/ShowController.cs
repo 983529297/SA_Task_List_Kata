@@ -11,9 +11,7 @@ namespace Tasks.Controller.UsecaseController
     {
         public ShowOutputDto Show(IOperation<ShowOutputDto, ShowInputDto> operation, string command = "by project")
         {
-            return operation.ExecuteOperation(new ShowInputDto { Mode = command });
-            return new OperationShow().ExecuteOperation(new ShowInputDto { Mode = command });
-            //return executeOperationImp.Show(new ShowInputDto { Mode = command });
+            return (ShowOutputDto) operation.ExecuteOperation(new ShowInputDto { Mode = command });
         }
     }
 }

@@ -19,36 +19,36 @@ namespace Tasks.Controller
             switch (command)
             {
                 case "show":
-                    ShowOutputDto showOutputDtoShow = new ShowController().Show(usecaseMap[command] is IOperation<ShowOutputDto, ShowInputDto> ? (IOperation<ShowOutputDto, ShowInputDto>)usecaseMap[command] : null);
+                    ShowOutputDto showOutputDtoShow = new ShowController().Show((IOperation<ShowOutputDto, ShowInputDto>) usecaseMap[command]);
                     IShowPresenter showPresenter = new ShowPresenterFactory().ShowPresenterMethod();
                     return showPresenter.OutputResult(showOutputDtoShow);
                 case "view":
-                    ShowOutputDto showOutputDtoView = new ShowController().Show(usecaseMap[command] is IOperation<ShowOutputDto, ShowInputDto> ? (IOperation<ShowOutputDto, ShowInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    ShowOutputDto showOutputDtoView = new ShowController().Show((IOperation<ShowOutputDto, ShowInputDto>) usecaseMap[command], commandRest[1]);
                     IShowPresenter viewPresenter = new ShowPresenterFactory().ShowPresenterMethod(commandRest[1]);
                     return viewPresenter.OutputResult(showOutputDtoView);
                 case "deadline":
-                    new deadlineController().Deadline(usecaseMap[command] is IOperation<VoidOutputDto, DeadlineInputDto> ? (IOperation<VoidOutputDto, DeadlineInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    new deadlineController().Deadline((IOperation<VoidOutputDto, DeadlineInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "today":
-                    TodayOutputDto todayOutputDto = new TodayController().Today(usecaseMap[command] is IOperation<TodayOutputDto, EmptyInputDto> ? (IOperation<TodayOutputDto, EmptyInputDto>)usecaseMap[command] : null);
+                    TodayOutputDto todayOutputDto = new TodayController().Today((IOperation<TodayOutputDto, EmptyInputDto>) usecaseMap[command]);
                     return new TodayPresenter().OutputResult(todayOutputDto);
                 case "add":
-                    new AddController().Add(usecaseMap[command] is IOperation<VoidOutputDto, AddInputDto> ? (IOperation<VoidOutputDto, AddInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    new AddController().Add((IOperation<VoidOutputDto, AddInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "delete":
-                    new DeleteController().Delete(usecaseMap[command] is IOperation<VoidOutputDto, DeleteInputDto> ? (IOperation<VoidOutputDto, DeleteInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    new DeleteController().Delete((IOperation<VoidOutputDto, DeleteInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "check":
-                    new CheckController().Check(usecaseMap[command] is IOperation<VoidOutputDto, DoCheckInputDto> ? (IOperation<VoidOutputDto, DoCheckInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    new CheckController().Check((IOperation<VoidOutputDto, DoCheckInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "uncheck":
-                    new UncheckController().Uncheck(usecaseMap[command] is IOperation<VoidOutputDto, DoCheckInputDto> ? (IOperation<VoidOutputDto, DoCheckInputDto>)usecaseMap[command] : null, commandRest[1]);
+                    new UncheckController().Uncheck((IOperation<VoidOutputDto, DoCheckInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "help":
-                    HelpOutputDto helpOutputDto = new HelpController().Help(usecaseMap[command] is IOperation<HelpOutputDto, EmptyInputDto> ? (IOperation<HelpOutputDto, EmptyInputDto>)usecaseMap[command] : null);
+                    HelpOutputDto helpOutputDto = new HelpController().Help((IOperation<HelpOutputDto, EmptyInputDto>) usecaseMap[command]);
                     return new HelpPresenter().OutputResult(helpOutputDto);
                 default:
-                    ErrorOutputDto errorOutputDto = new ErrorController().Error(usecaseMap[command] is IOperation<ErrorOutputDto, ErrorInputDto> ? (IOperation<ErrorOutputDto, ErrorInputDto>)usecaseMap[command] : null, command);
+                    ErrorOutputDto errorOutputDto = new ErrorController().Error((IOperation<ErrorOutputDto, ErrorInputDto>) usecaseMap[command], command);
                     return new ErrorPresenter().OutputResult(errorOutputDto);
             }
 

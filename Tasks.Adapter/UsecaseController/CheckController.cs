@@ -12,7 +12,6 @@ namespace Tasks.Controller.UsecaseController
         public void Check(IOperation<VoidOutputDto, DoCheckInputDto> operation, string idString)
         {
             operation.ExecuteOperation(new DoCheckInputDto { Id = int.Parse(idString), Done = true });
-            //executeOperationImp.Check(new DoCheckInputDto { Id = int.Parse(idString) });
         }
     }
 }

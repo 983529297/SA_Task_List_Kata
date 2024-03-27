@@ -12,7 +12,6 @@ namespace Tasks.Controller.UsecaseController
         public void Delete(IOperation<VoidOutputDto, DeleteInputDto> operation, string idString)
         {
             operation.ExecuteOperation(new DeleteInputDto { Id = int.Parse(idString) });
-            //executeOperationImp.Delete(new DeleteInputDto { Id = int.Parse(idString) });
         }
     }
 }

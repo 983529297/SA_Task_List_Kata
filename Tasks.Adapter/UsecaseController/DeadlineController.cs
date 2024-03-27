@@ -13,7 +13,6 @@ namespace Tasks.Controller.UsecaseController
         {
             IList<string> parameters = command.Split(" ".ToCharArray(), 2);
             operation.ExecuteOperation(new DeadlineInputDto { Id = int.Parse(parameters[0]), Deadline = DateTime.Parse(parameters[1]) });
-            //executeOperationImp.Deadline(new DeadlineInputDto { Id = int.Parse(parameters[0]), Deadline = DateTime.Parse(parameters[1]) });
         }
     }
 }

@@ -11,8 +11,7 @@ namespace Tasks.Controller.UsecaseController
     {
         public ErrorOutputDto Error(IOperation<ErrorOutputDto, ErrorInputDto> operation, string command)
         {
-            return operation.ExecuteOperation(new ErrorInputDto { Command = command });
-            //return executeOperationImp.Error(new ErrorInputDto { Command = command });
+            return (ErrorOutputDto) operation.ExecuteOperation(new ErrorInputDto { Command = command });
         }
     }
 }

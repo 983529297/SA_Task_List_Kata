@@ -12,7 +12,6 @@ namespace Tasks.Controller.UsecaseController
         public void Uncheck(IOperation<VoidOutputDto, DoCheckInputDto> operation, string idString)
         {
             operation.ExecuteOperation(new DoCheckInputDto { Id = int.Parse(idString), Done = false });
-            //executeOperationImp.Uncheck(new DoCheckInputDto { Id = int.Parse(idString) });
         }
     }
 }
