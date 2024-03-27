@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Input
 {
-    public class DeadlineInputDto : IInputDto
+    public class DeadlineInputDto
     {
         public int Id { get; set; }
 

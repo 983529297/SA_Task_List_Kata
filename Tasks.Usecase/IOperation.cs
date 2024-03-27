@@ -5,7 +5,7 @@ using Tasks.Usecase.Input;
 using Tasks.Usecase.Output;
 namespace Tasks.Usecase
 {
-    public interface IOperation<Output, Input> where Output : IOutputDto where Input : IInputDto
+    public interface IOperation<Output, Input>
     {
         Output ExecuteOperation(Input input);
     }

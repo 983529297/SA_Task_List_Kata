@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Usecase.Output
 {
-    public class HelpOutputDto : IOutputDto
+    public class HelpOutputDto
     {
         public IList<string> ListOfCommand { get; set; }
     }
