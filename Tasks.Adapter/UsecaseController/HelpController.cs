@@ -11,7 +11,7 @@ namespace Tasks.Controller.UsecaseController
     {
         public HelpOutputDto Help(IOperation<HelpOutputDto, EmptyInputDto> operation)
         {
-            return (HelpOutputDto) operation.ExecuteOperation(new EmptyInputDto());
+            return operation.ExecuteOperation(new EmptyInputDto());
         }
     }
 }

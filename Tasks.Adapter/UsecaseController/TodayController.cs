@@ -11,7 +11,7 @@ namespace Tasks.Controller.UsecaseController
     {
         public TodayOutputDto Today(IOperation<TodayOutputDto, EmptyInputDto> operation)
         {
-            return (TodayOutputDto) operation.ExecuteOperation(new EmptyInputDto());
+            return operation.ExecuteOperation(new EmptyInputDto());
         }
     }
 }
