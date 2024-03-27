@@ -6,7 +6,7 @@ using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class deadlineController : UsecaseControllerBase
+    public class deadlineController
     {
         public void Deadline(string command)
         {

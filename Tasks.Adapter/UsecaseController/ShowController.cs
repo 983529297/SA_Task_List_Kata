@@ -7,7 +7,7 @@ using Tasks.Usecase.Output;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class ShowController : UsecaseControllerBase
+    public class ShowController
     {
         public ShowOutputDto Show(string command = "by project")
         {

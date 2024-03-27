@@ -6,7 +6,7 @@ using Tasks.Usecase;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class HelpController : UsecaseControllerBase
+    public class HelpController
     {
         public HelpOutputDto Help()
         {

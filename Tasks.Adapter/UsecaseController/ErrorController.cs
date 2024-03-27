@@ -7,7 +7,7 @@ using Tasks.Usecase.Output;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class ErrorController : UsecaseControllerBase
+    public class ErrorController
     {
         public ErrorOutputDto Error(string command)
         {

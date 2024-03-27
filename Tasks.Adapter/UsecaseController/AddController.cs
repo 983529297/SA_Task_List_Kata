@@ -6,7 +6,7 @@ using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class AddController : UsecaseControllerBase
+    public class AddController
     {
         public void Add(string command)
         {

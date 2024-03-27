@@ -6,7 +6,7 @@ using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class DeleteController : UsecaseControllerBase
+    public class DeleteController
     {
         public void Delete(string idString)
         {

@@ -6,7 +6,7 @@ using Tasks.Usecase.Input;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class UncheckController : UsecaseControllerBase
+    public class UncheckController
     {
         public void Uncheck(string idString)
         {

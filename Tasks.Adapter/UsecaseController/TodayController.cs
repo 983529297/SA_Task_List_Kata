@@ -6,7 +6,7 @@ using Tasks.Usecase;
 
 namespace Tasks.Controller.UsecaseController
 {
-    public class TodayController : UsecaseControllerBase
+    public class TodayController
     {
         public TodayOutputDto Today()
         {
