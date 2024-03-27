@@ -9,9 +9,9 @@ namespace Tasks.Controller.UsecaseController
 {
     public class ErrorController
     {
-        public ErrorOutputDto Error(string command)
+        public ErrorOutputDto Error(IOperation<ErrorOutputDto, ErrorInputDto> operation, string command)
         {
-            return new OperationError().ExecuteOperation(new ErrorInputDto { Command = command });
+            return operation.ExecuteOperation(new ErrorInputDto { Command = command });
             //return executeOperationImp.Error(new ErrorInputDto { Command = command });
         }
     }

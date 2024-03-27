@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Tasks.Usecase;
 using Tasks.Usecase.Input;
+using Tasks.Usecase.Output;
 
 namespace Tasks.Controller.UsecaseController
 {
     public class CheckController
     {
-        public void Check(string idString)
+        public void Check(IOperation<VoidOutputDto, DoCheckInputDto> operation, string idString)
         {
-            new OperationDoCheck().ExecuteOperation(new DoCheckInputDto { Id = int.Parse(idString), Done = true });
+            operation.ExecuteOperation(new DoCheckInputDto { Id = int.Parse(idString), Done = true });
             //executeOperationImp.Check(new DoCheckInputDto { Id = int.Parse(idString) });
         }
     }

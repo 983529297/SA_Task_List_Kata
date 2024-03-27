@@ -6,6 +6,6 @@ namespace Tasks.Controller
 {
     public interface IExecution
     {
-        IList<string> Execute(string commandLine);
+        IList<string> Execute(IDictionary<string, object> usecaseMap, string commandLine);
     }
 }
