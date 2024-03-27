@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Usecase.Output;
+using Tasks.Usecase;
 
 namespace Tasks.Controller.UsecaseController
 {
@@ -9,7 +10,8 @@ namespace Tasks.Controller.UsecaseController
     {
         public HelpOutputDto Help()
         {
-            return executeOperationImp.Help();
+            return new OperationHelp().ExecuteOperation();
+            //return executeOperationImp.Help();
         }
     }
 }

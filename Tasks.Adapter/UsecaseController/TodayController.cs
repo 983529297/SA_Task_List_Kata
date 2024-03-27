@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Usecase.Output;
+using Tasks.Usecase;
 
 namespace Tasks.Controller.UsecaseController
 {
@@ -9,7 +10,8 @@ namespace Tasks.Controller.UsecaseController
     {
         public TodayOutputDto Today()
         {
-            return executeOperationImp.Today();
+            return new OperationToday().ExecuteOperation();
+            //return executeOperationImp.Today();
         }
     }
 }

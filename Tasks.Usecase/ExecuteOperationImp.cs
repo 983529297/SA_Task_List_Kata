@@ -10,8 +10,7 @@ namespace Tasks.Usecase
     {
 		public ShowOutputDto Show(ShowInputDto showDto)
 		{
-			IOperationShow operationShow = new OperationShowFactory().ShowMethod(showDto.Mode);
-			return operationShow.Show();
+			return new OperationShow().ExecuteOperation(showDto);
 		}
 
 		public void Deadline(DeadlineInputDto deadlineDto)
