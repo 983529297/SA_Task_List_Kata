@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Tasks.Data
+namespace Tasks.Entity
 {
     public class ProjectListData : IProjectListData
     {

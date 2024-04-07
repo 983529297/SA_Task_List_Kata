@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Data
+namespace Tasks.Entity
 {
     public interface IProjectListData
     {

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tasks.Data
+namespace Tasks.Entity
 {
     public class Project
     {
-        public string ID { get; set; }
+        internal string ID { get; set; }
 
-        public IList<Task> TaskList { get; set; }
+        internal IList<Task> TaskList { get; set; }
 
         public void DeleteTask(Task task)
         {
