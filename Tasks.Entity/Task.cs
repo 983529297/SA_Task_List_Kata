@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tasks.Entity
 {
-    public class Task
+    internal class Task
     {
         internal long ID { get; set; }
 
