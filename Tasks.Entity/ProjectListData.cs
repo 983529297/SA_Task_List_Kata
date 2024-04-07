@@ -125,16 +125,6 @@ namespace Tasks.Entity
             }
         }
 
-        public bool CheckProject(string name)
-        {
-            foreach (var project in projectList)
-            {
-                if (project.ID == name)
-                    return true;
-            }
-            return false;
-        }
-
         public void AddTask(string projectID, string description)
         {
             foreach (var project in projectList)
@@ -144,6 +134,28 @@ namespace Tasks.Entity
                     project.AddTask(new Task { ID = NextId(), Description = description, Done = false, Date = DateTime.Now.Date });
                 }
             }
+        }
+
+        public void SetDeadline(int id, DateTime deadline)
+        {
+            FindTaskById(id, out Task task);
+            task.Deadline = deadline;
+        }
+
+        public void SetDone(int id, bool done)
+        {
+            FindTaskById(id, out Task task);
+            task.Done = done;
+        }
+
+        private bool CheckProject(string name)
+        {
+            foreach (var project in projectList)
+            {
+                if (project.ID == name)
+                    return true;
+            }
+            return false;
         }
 
         private void FindTaskById(int id, out Task identifiedTask)
@@ -157,18 +169,6 @@ namespace Tasks.Entity
                 }
             }
             throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
-        }
-
-        public void SetDeadline(int id, DateTime deadline)
-        {
-            FindTaskById(id, out Task task);
-            task.Deadline = deadline;
-        }
-
-        public void SetDone(int id, bool done)
-        {
-            FindTaskById(id, out Task task);
-            task.Done = done;
         }
 
         private int NextId()
