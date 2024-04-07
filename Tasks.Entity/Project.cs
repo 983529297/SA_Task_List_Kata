@@ -1,18 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Tasks.Entity
 {
-    internal class Project
+    public class Project
     {
-        internal string ID { get; set; }
+        private string ID;
 
-        internal IList<Task> TaskList { get; set; }
+        private IList<Task> TaskList;
 
-        public void DeleteTask(Task task)
+        public Project(string id)
         {
-            TaskList.Remove(task);
+            ID = id;
+            TaskList = new List<Task>();
+        }
+
+        public string GetID()
+        {
+            return ID;
+        }
+
+        public IList<ReadonlyTask> SelectTasks()
+        {
+            return TaskList.Select(task => new ReadonlyTask(task.GetID(), task.GetDescription(), task.GetDone(), task.GetDate(), task.GetDeadline())).ToList();
+        }
+
+        public void DeleteTaskByID(int id)
+        {   
+            TaskList.Remove(TaskList.Where(task => task.GetID() == id).FirstOrDefault());
+        }
+
+        public void SetDeadlineByID(int id, DateTime deadline)
+        {
+            TaskList.Where(task => task.GetID() == id).FirstOrDefault().SetDeadline(deadline);
+        }
+
+        public void SetDoneByID(int id, bool done)
+        {
+            TaskList.Where(task => task.GetID() == id).FirstOrDefault().SetDone(done);
         }
 
         public void AddTask(Task task)
@@ -20,16 +47,16 @@ namespace Tasks.Entity
             TaskList.Add(task);
         }
 
-        public Task FindTaskById(int id)
+        public bool CheckTask(int id)
         {
             foreach (var task in TaskList)
             {
-                if (task.ID == id)
+                if (task.GetID() == id)
                 {
-                    return task;
+                    return true;
                 }
             }
-            return null;
+            return false;
         }
     }
 }

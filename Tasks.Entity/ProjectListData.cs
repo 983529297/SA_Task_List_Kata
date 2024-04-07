@@ -32,19 +32,12 @@ namespace Tasks.Entity
             }
         }
 
-        public IDictionary<string, IList<TaskListArg>> GetTaskList()
+        public IDictionary<string, IList<ReadonlyTask>> GetTaskList()
         {
-            IDictionary<string, IList<TaskListArg>> todayTasks = new Dictionary<string, IList<TaskListArg>>();
+            IDictionary<string, IList<ReadonlyTask>> todayTasks = new Dictionary<string, IList<ReadonlyTask>>();
             foreach (var project in projectList)
             {
-                foreach (var task in project.TaskList)
-                {
-                    if (!todayTasks.ContainsKey(project.ID))
-                    {
-                        todayTasks[project.ID] = new List<TaskListArg>();
-                    }
-                    todayTasks[project.ID].Add(new TaskListArg { Done = task.Done ? "x" : " ", Id = task.ID.ToString(), Description = task.Description, deadline = task.Deadline.HasValue ? task.Deadline.Value.ToString("yyyy-MM-dd") : "" });
-                }
+                todayTasks[project.GetID()] = project.SelectTasks();
             }
             return todayTasks;
         }
@@ -54,14 +47,14 @@ namespace Tasks.Entity
             IDictionary<string, IList<TaskListViewByDeadlineArg>> tasksByDeadline = new Dictionary<string, IList<TaskListViewByDeadlineArg>>();
             foreach (var project in projectList)
             {
-                foreach (var task in project.TaskList)
+                foreach (var task in project.SelectTasks())
                 {
-                    string deadline = task.Deadline == null ? "None" : task.Deadline.Value.ToString("yyyy-MM-dd");
+                    string deadline = task.GetDeadline() == null ? "None" : task.GetDeadline().Value.ToString("yyyy-MM-dd");
                     if (!tasksByDeadline.ContainsKey(deadline))
                     {
                         tasksByDeadline[deadline] = new List<TaskListViewByDeadlineArg>();
                     }
-                    tasksByDeadline[deadline].Add(new TaskListViewByDeadlineArg { Done = task.Done ? "x" : " ", Id = task.ID.ToString(), Description = task.Description });
+                    tasksByDeadline[deadline].Add(new TaskListViewByDeadlineArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription() });
                 }
             }
             return tasksByDeadline;
@@ -72,14 +65,14 @@ namespace Tasks.Entity
             IDictionary<string, IList<TaskListViewByDateArg>> tasksByDate = new Dictionary<string, IList<TaskListViewByDateArg>>();
             foreach (var project in projectList)
             {
-                foreach (var task in project.TaskList)
+                foreach (var task in project.SelectTasks())
                 {
-                    string date = task.Date.ToString("yyyy-MM-dd");
+                    string date = task.GetDate().ToString("yyyy-MM-dd");
                     if (!tasksByDate.ContainsKey(date))
                     {
                         tasksByDate[date] = new List<TaskListViewByDateArg>();
                     }
-                    tasksByDate[date].Add(new TaskListViewByDateArg { Done = task.Done ? "x" : " ", Id = task.ID.ToString(), Description = task.Description });
+                    tasksByDate[date].Add(new TaskListViewByDateArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription() });
                 }
             }
             return tasksByDate;
@@ -90,15 +83,15 @@ namespace Tasks.Entity
             IDictionary<string, IList<TaskListTodayArg>> todayTasks = new Dictionary<string, IList<TaskListTodayArg>>();
             foreach (var project in projectList)
             {
-                foreach (var task in project.TaskList)
+                foreach (var task in project.SelectTasks())
                 {
-                    if (task.Deadline.HasValue && task.Deadline.Value.Date == DateTime.Now.Date)
+                    if (task.GetDeadline().HasValue && task.GetDeadline().Value.Date == DateTime.Now.Date)
                     {
-                        if (!todayTasks.ContainsKey(project.ID))
+                        if (!todayTasks.ContainsKey(project.GetID()))
                         {
-                            todayTasks[project.ID] = new List<TaskListTodayArg>();
+                            todayTasks[project.GetID()] = new List<TaskListTodayArg>();
                         }
-                        todayTasks[project.ID].Add(new TaskListTodayArg { Done = task.Done ? "x" : " ", Id = task.ID.ToString(), Description = task.Description, Deadline = task.Deadline.Value.ToString("yyyy-MM-dd") });
+                        todayTasks[project.GetID()].Add(new TaskListTodayArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription(), Deadline = task.GetDeadline().Value.ToString("yyyy-MM-dd") });
                     }
                 }
             }
@@ -107,12 +100,11 @@ namespace Tasks.Entity
 
         public void DeleteTask(int id)
         {
-            FindTaskById(id, out Task task);
             foreach (var project in projectList)
             {
-                if (project.TaskList.Contains(task))
+                if (project.CheckTask(id))
                 {
-                    project.DeleteTask(task);
+                    project.DeleteTaskByID(id);
                 }
             }
         }
@@ -121,7 +113,7 @@ namespace Tasks.Entity
         {
 			if (!CheckProject(name))
             {
-                projectList.Add(new Project { ID = name, TaskList = new List<Task>() });
+                projectList.Add(new Project (name));
             }
         }
 
@@ -129,46 +121,43 @@ namespace Tasks.Entity
         {
             foreach (var project in projectList)
             {
-                if (project.ID == projectID)
+                if (project.GetID() == projectID)
                 {
-                    project.AddTask(new Task { ID = NextId(), Description = description, Done = false, Date = DateTime.Now.Date });
+                    project.AddTask(new Task (NextId(), description, false, DateTime.Now.Date));
                 }
             }
         }
 
         public void SetDeadline(int id, DateTime deadline)
         {
-            FindTaskById(id, out Task task);
-            task.Deadline = deadline;
+            foreach (var project in projectList)
+            {
+                if (project.CheckTask(id))
+                {
+                    project.SetDeadlineByID(id, deadline);
+                }
+            }
         }
 
         public void SetDone(int id, bool done)
         {
-            FindTaskById(id, out Task task);
-            task.Done = done;
+            foreach (var project in projectList)
+            {
+                if (project.CheckTask(id))
+                {
+                    project.SetDoneByID(id, done);
+                }
+            }
         }
 
         private bool CheckProject(string name)
         {
             foreach (var project in projectList)
             {
-                if (project.ID == name)
+                if (project.GetID() == name)
                     return true;
             }
             return false;
-        }
-
-        private void FindTaskById(int id, out Task identifiedTask)
-        {
-            foreach (var project in projectList)
-            {
-                identifiedTask = project.FindTaskById(id);
-                if (identifiedTask != null)
-                {
-                    return;
-                }
-            }
-            throw new Exception(string.Format("Could not find a task with an ID of {0}.", id));
         }
 
         private int NextId()

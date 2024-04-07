@@ -6,13 +6,14 @@ namespace Tasks.Entity
 {
     public interface IProjectListData
     {
-        IDictionary<string, IList<TaskListArg>> GetTaskList();
+        IDictionary<string, IList<ReadonlyTask>> GetTaskList();
 
         IDictionary<string, IList<TaskListViewByDeadlineArg>> GetTaskListOrderByDeadline();
 
         IDictionary<string, IList<TaskListViewByDateArg>> GetTaskListOrderByDate();
 
         IDictionary<string, IList<TaskListTodayArg>> GetTasksByDate(DateTime deadline);
+
         void AddProject(string name);
 
         void DeleteTask(int id);

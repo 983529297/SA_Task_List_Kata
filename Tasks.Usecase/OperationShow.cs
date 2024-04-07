@@ -26,7 +26,7 @@ namespace Tasks.Usecase
 
         private ShowOutputDto Show()
         {
-            IDictionary<string, IList<TaskListArg>> Tasks = taskListData.GetTaskList();
+            IDictionary<string, IList<ReadonlyTask>> Tasks = taskListData.GetTaskList();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var TaskList in Tasks)
             {
@@ -37,7 +37,7 @@ namespace Tasks.Usecase
                     {
                         showOutputDto.TaskListWithOrder[projectName] = new List<ShowOutputArg>();
                     }
-                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description, Deadline = task.deadline });
+                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription(), Deadline = task.GetDeadline().HasValue ? task.GetDeadline().Value.ToString("yyyy-MM-dd") : "" });
                 }
             }
             return showOutputDto;
