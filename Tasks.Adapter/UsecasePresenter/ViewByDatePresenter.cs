@@ -15,7 +15,7 @@ namespace Tasks.Controller.UsecasePresenter
                 showString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    showString.Add(string.Format("    [{0}] {1}: {2}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description));
+                    showString.Add(string.Format("    [{0}] {1}: {2}", taskAttribute.Done ? "x" : " ", taskAttribute.Id, taskAttribute.Description));
                 }
                 showString.Add("");
             }

@@ -6,10 +6,10 @@ namespace Tasks.Entity
 {
     public class TaskListViewByDateArg
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
 
         public string Description { get; set; }
 
-        public string Done { get; set; }
+        public bool Done { get; set; }
     }
 }

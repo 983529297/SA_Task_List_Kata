@@ -54,7 +54,7 @@ namespace Tasks.Entity
                     {
                         tasksByDeadline[deadline] = new List<TaskListViewByDeadlineArg>();
                     }
-                    tasksByDeadline[deadline].Add(new TaskListViewByDeadlineArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription() });
+                    tasksByDeadline[deadline].Add(new TaskListViewByDeadlineArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
                 }
             }
             return tasksByDeadline;
@@ -72,7 +72,7 @@ namespace Tasks.Entity
                     {
                         tasksByDate[date] = new List<TaskListViewByDateArg>();
                     }
-                    tasksByDate[date].Add(new TaskListViewByDateArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription() });
+                    tasksByDate[date].Add(new TaskListViewByDateArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
                 }
             }
             return tasksByDate;
@@ -91,7 +91,7 @@ namespace Tasks.Entity
                         {
                             todayTasks[project.GetID()] = new List<TaskListTodayArg>();
                         }
-                        todayTasks[project.GetID()].Add(new TaskListTodayArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription(), Deadline = task.GetDeadline().Value.ToString("yyyy-MM-dd") });
+                        todayTasks[project.GetID()].Add(new TaskListTodayArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription(), Deadline = task.GetDeadline() });
                     }
                 }
             }

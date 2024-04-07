@@ -37,7 +37,7 @@ namespace Tasks.Usecase
                     {
                         showOutputDto.TaskListWithOrder[projectName] = new List<ShowOutputArg>();
                     }
-                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.GetDone() ? "x" : " ", Id = task.GetID().ToString(), Description = task.GetDescription(), Deadline = task.GetDeadline().HasValue ? task.GetDeadline().Value.ToString("yyyy-MM-dd") : "" });
+                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.GetDone(), Id = ((int)task.GetID()), Description = task.GetDescription(), Deadline = task.GetDeadline() });
                 }
             }
             return showOutputDto;

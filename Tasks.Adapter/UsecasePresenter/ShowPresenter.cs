@@ -15,7 +15,7 @@ namespace Tasks.Controller.UsecasePresenter
                 showString.Add(project.Key);
                 foreach (var taskAttribute in project.Value)
                 {
-                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done, taskAttribute.Id, taskAttribute.Description, taskAttribute.Deadline == "" ? "" : " " + taskAttribute.Deadline));
+                    showString.Add(string.Format("    [{0}] {1}: {2}{3}", taskAttribute.Done ? "x" : " ", taskAttribute.Id, taskAttribute.Description, taskAttribute.Deadline == null ? "" : " " + taskAttribute.Deadline.Value.ToString("yyyy-MM-dd")));
                 }
                 showString.Add("");
             }
