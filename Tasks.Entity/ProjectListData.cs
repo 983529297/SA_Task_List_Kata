@@ -34,9 +34,9 @@ namespace Tasks.Entity
             return todayTasks;
         }
 
-        public IDictionary<string, IList<TaskListViewByDeadlineArg>> GetTaskListOrderByDeadline()
+        public IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDeadline()
         {
-            IDictionary<string, IList<TaskListViewByDeadlineArg>> tasksByDeadline = new Dictionary<string, IList<TaskListViewByDeadlineArg>>();
+            IDictionary<string, IList<ReadonlyTask>> tasksByDeadline = new Dictionary<string, IList<ReadonlyTask>>();
             foreach (var project in projectList)
             {
                 foreach (var task in project.SelectTasks())
@@ -44,17 +44,17 @@ namespace Tasks.Entity
                     string deadline = task.GetDeadline() == null ? "None" : task.GetDeadline().Value.ToString("yyyy-MM-dd");
                     if (!tasksByDeadline.ContainsKey(deadline))
                     {
-                        tasksByDeadline[deadline] = new List<TaskListViewByDeadlineArg>();
+                        tasksByDeadline[deadline] = new List<ReadonlyTask>();
                     }
-                    tasksByDeadline[deadline].Add(new TaskListViewByDeadlineArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
+                    tasksByDeadline[deadline].Add(task);
                 }
             }
             return tasksByDeadline;
         }
 
-        public IDictionary<string, IList<TaskListViewByDateArg>> GetTaskListOrderByDate()
+        public IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDate()
         {
-            IDictionary<string, IList<TaskListViewByDateArg>> tasksByDate = new Dictionary<string, IList<TaskListViewByDateArg>>();
+            IDictionary<string, IList<ReadonlyTask>> tasksByDate = new Dictionary<string, IList<ReadonlyTask>>();
             foreach (var project in projectList)
             {
                 foreach (var task in project.SelectTasks())
@@ -62,17 +62,17 @@ namespace Tasks.Entity
                     string date = task.GetDate().ToString("yyyy-MM-dd");
                     if (!tasksByDate.ContainsKey(date))
                     {
-                        tasksByDate[date] = new List<TaskListViewByDateArg>();
+                        tasksByDate[date] = new List<ReadonlyTask>();
                     }
-                    tasksByDate[date].Add(new TaskListViewByDateArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
+                    tasksByDate[date].Add(task);
                 }
             }
             return tasksByDate;
         }
 
-        public IDictionary<string, IList<TaskListTodayArg>> GetTasksByDate(DateTime deadline)
+        public IDictionary<string, IList<ReadonlyTask>> GetTasksByDate(DateTime deadline)
         {
-            IDictionary<string, IList<TaskListTodayArg>> todayTasks = new Dictionary<string, IList<TaskListTodayArg>>();
+            IDictionary<string, IList<ReadonlyTask>> todayTasks = new Dictionary<string, IList<ReadonlyTask>>();
             foreach (var project in projectList)
             {
                 foreach (var task in project.SelectTasks())
@@ -81,9 +81,9 @@ namespace Tasks.Entity
                     {
                         if (!todayTasks.ContainsKey(project.GetID()))
                         {
-                            todayTasks[project.GetID()] = new List<TaskListTodayArg>();
+                            todayTasks[project.GetID()] = new List<ReadonlyTask>();
                         }
-                        todayTasks[project.GetID()].Add(new TaskListTodayArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription(), Deadline = task.GetDeadline() });
+                        todayTasks[project.GetID()].Add(task);
                     }
                 }
             }

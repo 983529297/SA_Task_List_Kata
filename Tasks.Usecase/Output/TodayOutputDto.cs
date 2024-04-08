@@ -7,11 +7,11 @@ namespace Tasks.Usecase.Output
 {
     public class TodayOutputDto
     {
-        public IDictionary<string, IList<TaskListTodayArg>> TaskListOfToday { get; set; }
+        public IDictionary<string, IList<ReadonlyTask>> TaskListOfToday { get; set; }
 
         public TodayOutputDto()
         {
-            TaskListOfToday = new Dictionary<string, IList<TaskListTodayArg>>();
+            TaskListOfToday = new Dictionary<string, IList<ReadonlyTask>>();
         }
     }
 }

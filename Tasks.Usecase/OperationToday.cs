@@ -11,7 +11,7 @@ namespace Tasks.Usecase
     {
         public TodayOutputDto ExecuteOperation(EmptyInputDto emptyInputDto = null)
         {
-            IDictionary<string, IList<TaskListTodayArg>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
+            IDictionary<string, IList<ReadonlyTask>> todayTasks = taskListData.GetTasksByDate(DateTime.Now);
 
             return new TodayOutputDto { TaskListOfToday = todayTasks };
         }

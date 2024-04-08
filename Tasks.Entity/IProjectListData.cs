@@ -8,11 +8,11 @@ namespace Tasks.Entity
     {
         IDictionary<string, IList<ReadonlyTask>> GetTaskList();
 
-        IDictionary<string, IList<TaskListViewByDeadlineArg>> GetTaskListOrderByDeadline();
+        IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDeadline();
 
-        IDictionary<string, IList<TaskListViewByDateArg>> GetTaskListOrderByDate();
+        IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDate();
 
-        IDictionary<string, IList<TaskListTodayArg>> GetTasksByDate(DateTime deadline);
+        IDictionary<string, IList<ReadonlyTask>> GetTasksByDate(DateTime deadline);
 
         void AddProject(string name);
 
