@@ -8,7 +8,6 @@ namespace Tasks.Entity
     {
         private readonly IList<Project> projectList = new List<Project>();
         private int Id = 0;
-        private static readonly object lockObject = new object();
         private static ProjectListData instance = null;
 
         private ProjectListData() { }
