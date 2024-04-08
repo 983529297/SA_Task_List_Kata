@@ -7,9 +7,9 @@ namespace Tasks.Entity
 {
     public class Project
     {
-        private string ID;
+        private readonly string ID;
 
-        private IList<Task> TaskList;
+        private readonly IList<Task> TaskList;
 
         public Project(string id)
         {
