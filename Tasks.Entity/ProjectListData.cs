@@ -19,14 +19,7 @@ namespace Tasks.Entity
             {
                 if (instance == null)
                 {
-                    lock (lockObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ProjectListData();
-
-                        }
-                    }
+                    instance = new ProjectListData();
                 }
                 return instance;
             }
