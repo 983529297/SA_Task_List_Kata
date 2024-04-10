@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.Data;
+using Tasks.Entity;
 using Tasks.Usecase.Input;
 using Tasks.Usecase.Output;
 
@@ -30,10 +30,6 @@ namespace Tasks.Usecase
 
 		private void AddTask(string project, string description)
 		{
-			if (!taskListData.CheckProject(project))
-			{
-				throw new Exception(string.Format("Could not find a project with the name \"{0}\".", project));
-			}
 			taskListData.AddTask(project, description);
 		}
 	}

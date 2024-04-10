@@ -1,6 +1,4 @@
-HW4
+HW5
 ========
-1. 將task.data中的資料更詳細分層
-2. 重新劃分Main以及Controller的界線
-3. 將controller依賴的usecase class，從main建構dictionary注入給controller
-4. 重新命名專案
+1. 新增ReadonlyTask避免外部修改到原本的資料
+2. 將projectList、project、task分工更為詳細，避免進行其他層的操作

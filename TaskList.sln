@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Main", "Tasks.Main\Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Tests", "Tasks.Tests\Tasks.Tests.csproj", "{7300E494-0DC7-4233-8732-93D685B0F485}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Data", "Tasks.Data\Tasks.Data.csproj", "{8CDC6645-E546-40CB-94E2-071A5AA23F1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.Entity", "Tasks.Entity\Tasks.Entity.csproj", "{8CDC6645-E546-40CB-94E2-071A5AA23F1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks.IO", "Tasks.IO\Tasks.IO.csproj", "{0AA1A59B-508D-46A5-98E5-42A84EB4CB60}"
 EndProject

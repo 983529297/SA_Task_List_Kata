@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.Data;
+using Tasks.Entity;
 using Tasks.Usecase.Input;
 using Tasks.Usecase.Output;
 
@@ -26,7 +26,7 @@ namespace Tasks.Usecase
 
         private ShowOutputDto Show()
         {
-            IDictionary<string, IList<TaskListArg>> Tasks = taskListData.GetTaskList();
+            IDictionary<string, IList<ReadonlyTask>> Tasks = taskListData.GetTaskList();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var TaskList in Tasks)
             {
@@ -37,7 +37,7 @@ namespace Tasks.Usecase
                     {
                         showOutputDto.TaskListWithOrder[projectName] = new List<ShowOutputArg>();
                     }
-                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description, Deadline = task.deadline });
+                    showOutputDto.TaskListWithOrder[projectName].Add(new ShowOutputArg { Done = task.GetDone(), Id = ((int)task.GetID()), Description = task.GetDescription(), Deadline = task.GetDeadline() });
                 }
             }
             return showOutputDto;
@@ -45,7 +45,7 @@ namespace Tasks.Usecase
 
         private ShowOutputDto ViewByDate()
         {
-            IDictionary<string, IList<TaskListViewByDateArg>> todayTasks = taskListData.GetTaskListOrderByDate();
+            IDictionary<string, IList<ReadonlyTask>> todayTasks = taskListData.GetTaskListOrderByDate();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var todayTaskList in todayTasks)
             {
@@ -56,7 +56,7 @@ namespace Tasks.Usecase
                     {
                         showOutputDto.TaskListWithOrder[deadline] = new List<ShowOutputArg>();
                     }
-                    showOutputDto.TaskListWithOrder[deadline].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description });
+                    showOutputDto.TaskListWithOrder[deadline].Add(new ShowOutputArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
                 }
             }
             return showOutputDto;
@@ -64,7 +64,7 @@ namespace Tasks.Usecase
 
         private ShowOutputDto ViewByDeadline()
         {
-            IDictionary<string, IList<TaskListViewByDeadlineArg>> deadlineTasks = taskListData.GetTaskListOrderByDeadline();
+            IDictionary<string, IList<ReadonlyTask>> deadlineTasks = taskListData.GetTaskListOrderByDeadline();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var deadlineTaskList in deadlineTasks)
             {
@@ -75,7 +75,7 @@ namespace Tasks.Usecase
                     {
                         showOutputDto.TaskListWithOrder[deadline] = new List<ShowOutputArg>();
                     }
-                    showOutputDto.TaskListWithOrder[deadline].Add(new ShowOutputArg { Done = task.Done, Id = task.Id, Description = task.Description });
+                    showOutputDto.TaskListWithOrder[deadline].Add(new ShowOutputArg { Done = task.GetDone(), Id = task.GetID(), Description = task.GetDescription() });
                 }
             }
             return showOutputDto;
