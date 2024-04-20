@@ -13,5 +13,7 @@ namespace Tasks.Entity
         void AddTask(string project, string description);
 
         void SetDone(int id, bool done);
+
+        string GetID();
     }
 }

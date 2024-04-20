@@ -9,6 +9,7 @@ namespace Tasks.Entity
         private readonly IList<Project> projectList = new List<Project>();
         private int Id = 0;
         private static ProjectListData instance = null;
+        private string projectListID = "1";
 
         private ProjectListData() { }
 
@@ -22,6 +23,11 @@ namespace Tasks.Entity
                 }
                 return instance;
             }
+        }
+
+        public string GetID()
+        {
+            return projectListID;
         }
 
         public IDictionary<string, IList<ReadonlyTask>> GetTaskList()

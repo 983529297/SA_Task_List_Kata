@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Tasks.Controller.UsecaseController;
-using Tasks.Controller.UsecasePresenter;
+using Tasks.Adapter.UsecaseController;
+using Tasks.Adapter.UsecasePresenter;
 using Tasks.Usecase;
 using Tasks.Usecase.Output;
 using Tasks.Usecase.Input;
 
-namespace Tasks.Controller
+namespace Tasks.Adapter
 {
     public class Execution : IExecution
     {
 
-        public IList<string> Execute(IDictionary<string, OperationBase> usecaseMap, string commandLine)
+        public IList<string> Execute(IUsecaseDependency usecaseDependency, string commandLine)
         {
+            var usecaseMap = usecaseDependency.GetUsecaseMap();
+            var repository = usecaseDependency.GetRepository();
             var commandRest = commandLine.Split(" ".ToCharArray(), 2);
             var command = commandRest[0];
+
             switch (command)
             {
                 case "show":

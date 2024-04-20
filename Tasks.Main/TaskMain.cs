@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Tasks.Console;
-using Tasks.Controller;
+using Tasks.Adapter;
 
 namespace Tasks.Main
 {
@@ -34,7 +34,7 @@ namespace Tasks.Main
                 }
                 try
                 {
-                    IList<string> result = execution.Execute(new UsecaseDependency().usecaseMap, commandLine);
+                    IList<string> result = execution.Execute(new UsecaseDependency(), commandLine);
                     if (result.Count != 0)
                     {
                         foreach (var line in result)
