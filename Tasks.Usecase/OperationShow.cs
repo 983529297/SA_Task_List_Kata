@@ -11,17 +11,6 @@ namespace Tasks.Usecase
     {
         public ShowOutputDto ExecuteOperation(ShowInputDto showInputDto)
         {
-            switch (showInputDto.Mode)
-            {
-                case "by project":
-                    return Show();
-                default:
-                    throw new Exception("Could not find the command");
-            }
-        }
-
-        private ShowOutputDto Show()
-        {
             IDictionary<string, IList<ReadonlyTask>> Tasks = taskListData.GetTaskList();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var TaskList in Tasks)

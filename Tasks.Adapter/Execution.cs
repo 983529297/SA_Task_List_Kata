@@ -20,7 +20,7 @@ namespace Tasks.Controller
             {
                 case "show":
                     ShowOutputDto showOutputDtoShow = new ShowController().Show((IOperation<ShowOutputDto, ShowInputDto>) usecaseMap[command]);
-                    IShowPresenter showPresenter = new ShowPresenterFactory().ShowPresenterMethod();
+                    IShowPresenter showPresenter = new ShowPresenter();
                     return showPresenter.OutputResult(showOutputDtoShow);
                 case "add":
                     new AddController().Add((IOperation<VoidOutputDto, AddInputDto>) usecaseMap[command], commandRest[1]);
