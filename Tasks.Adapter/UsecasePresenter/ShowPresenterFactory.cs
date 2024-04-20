@@ -12,10 +12,6 @@ namespace Tasks.Controller.UsecasePresenter
             {
                 case "by project":
                     return new ShowPresenter();
-                case "by deadline":
-                    return new ViewByDeadlinePresenter();
-                case "by date":
-                    return new ViewByDatePresenter();
                 default:
                     throw new Exception("Could not find the command");
             }

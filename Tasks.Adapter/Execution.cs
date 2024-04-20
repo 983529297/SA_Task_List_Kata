@@ -22,21 +22,8 @@ namespace Tasks.Controller
                     ShowOutputDto showOutputDtoShow = new ShowController().Show((IOperation<ShowOutputDto, ShowInputDto>) usecaseMap[command]);
                     IShowPresenter showPresenter = new ShowPresenterFactory().ShowPresenterMethod();
                     return showPresenter.OutputResult(showOutputDtoShow);
-                case "view":
-                    ShowOutputDto showOutputDtoView = new ShowController().Show((IOperation<ShowOutputDto, ShowInputDto>) usecaseMap[command], commandRest[1]);
-                    IShowPresenter viewPresenter = new ShowPresenterFactory().ShowPresenterMethod(commandRest[1]);
-                    return viewPresenter.OutputResult(showOutputDtoView);
-                case "deadline":
-                    new deadlineController().Deadline((IOperation<VoidOutputDto, DeadlineInputDto>) usecaseMap[command], commandRest[1]);
-                    break;
-                case "today":
-                    TodayOutputDto todayOutputDto = new TodayController().Today((IOperation<TodayOutputDto, EmptyInputDto>) usecaseMap[command]);
-                    return new TodayPresenter().OutputResult(todayOutputDto);
                 case "add":
                     new AddController().Add((IOperation<VoidOutputDto, AddInputDto>) usecaseMap[command], commandRest[1]);
-                    break;
-                case "delete":
-                    new DeleteController().Delete((IOperation<VoidOutputDto, DeleteInputDto>) usecaseMap[command], commandRest[1]);
                     break;
                 case "check":
                     new CheckController().Check((IOperation<VoidOutputDto, DoCheckInputDto>) usecaseMap[command], commandRest[1]);

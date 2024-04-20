@@ -34,73 +34,6 @@ namespace Tasks.Entity
             return todayTasks;
         }
 
-        public IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDeadline()
-        {
-            IDictionary<string, IList<ReadonlyTask>> tasksByDeadline = new Dictionary<string, IList<ReadonlyTask>>();
-            foreach (var project in projectList)
-            {
-                foreach (var task in project.SelectTasks())
-                {
-                    string deadline = task.GetDeadline() == null ? "None" : task.GetDeadline().Value.ToString("yyyy-MM-dd");
-                    if (!tasksByDeadline.ContainsKey(deadline))
-                    {
-                        tasksByDeadline[deadline] = new List<ReadonlyTask>();
-                    }
-                    tasksByDeadline[deadline].Add(task);
-                }
-            }
-            return tasksByDeadline;
-        }
-
-        public IDictionary<string, IList<ReadonlyTask>> GetTaskListOrderByDate()
-        {
-            IDictionary<string, IList<ReadonlyTask>> tasksByDate = new Dictionary<string, IList<ReadonlyTask>>();
-            foreach (var project in projectList)
-            {
-                foreach (var task in project.SelectTasks())
-                {
-                    string date = task.GetDate().ToString("yyyy-MM-dd");
-                    if (!tasksByDate.ContainsKey(date))
-                    {
-                        tasksByDate[date] = new List<ReadonlyTask>();
-                    }
-                    tasksByDate[date].Add(task);
-                }
-            }
-            return tasksByDate;
-        }
-
-        public IDictionary<string, IList<ReadonlyTask>> GetTasksByDate(DateTime deadline)
-        {
-            IDictionary<string, IList<ReadonlyTask>> todayTasks = new Dictionary<string, IList<ReadonlyTask>>();
-            foreach (var project in projectList)
-            {
-                foreach (var task in project.SelectTasks())
-                {
-                    if (task.GetDeadline().HasValue && task.GetDeadline().Value.Date == DateTime.Now.Date)
-                    {
-                        if (!todayTasks.ContainsKey(project.GetID()))
-                        {
-                            todayTasks[project.GetID()] = new List<ReadonlyTask>();
-                        }
-                        todayTasks[project.GetID()].Add(task);
-                    }
-                }
-            }
-            return todayTasks;
-        }
-
-        public void DeleteTask(int id)
-        {
-            foreach (var project in projectList)
-            {
-                if (project.CheckTask(id))
-                {
-                    project.DeleteTaskByID(id);
-                }
-            }
-        }
-
         public void AddProject(string name)
         {
 			if (!CheckProject(name))
@@ -116,17 +49,6 @@ namespace Tasks.Entity
                 if (project.GetID() == projectID)
                 {
                     project.AddTask(new Task (NextId(), description, false, DateTime.Now.Date));
-                }
-            }
-        }
-
-        public void SetDeadline(int id, DateTime deadline)
-        {
-            foreach (var project in projectList)
-            {
-                if (project.CheckTask(id))
-                {
-                    project.SetDeadlineByID(id, deadline);
                 }
             }
         }

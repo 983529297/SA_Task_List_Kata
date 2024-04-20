@@ -15,14 +15,10 @@ namespace Tasks.Main
             usecaseMap = new Dictionary<string, OperationBase>()
             {
                 {"show", new OperationShow() },
-                {"view", new OperationShow() },
                 {"add", new OperationAdd() },
                 {"check", new OperationDoCheck() },
                 {"uncheck", new OperationDoCheck() },
-                {"today", new OperationToday() },
                 {"help", new OperationHelp() },
-                {"deadline", new OperationDeadline() },
-                {"delete", new OperationDelete() },
                 {"error", new OperationError() }
             };
         }
