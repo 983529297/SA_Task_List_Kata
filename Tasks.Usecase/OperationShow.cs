@@ -9,9 +9,14 @@ namespace Tasks.Usecase
 {
     public class OperationShow : OperationBase, IOperation<ShowOutputDto, ShowInputDto>
     {
+        public OperationShow(IProjectListRepository projectListRepository)
+        {
+            this.projectListRepository = projectListRepository;
+        }
+
         public ShowOutputDto ExecuteOperation(ShowInputDto showInputDto)
         {
-            IDictionary<string, IList<ReadonlyTask>> Tasks = taskListData.GetTaskList();
+            IDictionary<string, IList<ReadonlyTask>> Tasks = projectListRepository.FindByID().GetTaskList();
             ShowOutputDto showOutputDto = new ShowOutputDto();
             foreach (var TaskList in Tasks)
             {

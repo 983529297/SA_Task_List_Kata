@@ -7,7 +7,7 @@ namespace Tasks.Usecase
 {
     public interface IProjectListRepository
     {
-        IProjectListData FindByID(string id);
+        IProjectListData FindByID(string id = "1");
 
         void Save(IProjectListData projectListData);
     }

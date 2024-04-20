@@ -15,7 +15,6 @@ namespace Tasks.Adapter
         public IList<string> Execute(IUsecaseDependency usecaseDependency, string commandLine)
         {
             var usecaseMap = usecaseDependency.GetUsecaseMap();
-            var repository = usecaseDependency.GetRepository();
             var commandRest = commandLine.Split(" ".ToCharArray(), 2);
             var command = commandRest[0];
 

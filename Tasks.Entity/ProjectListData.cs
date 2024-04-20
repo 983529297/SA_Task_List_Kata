@@ -11,8 +11,6 @@ namespace Tasks.Entity
         private static ProjectListData instance = null;
         private string projectListID = "1";
 
-        private ProjectListData() { }
-
         public static ProjectListData Instance
         {
             get
