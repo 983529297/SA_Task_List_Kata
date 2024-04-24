@@ -1,4 +1,4 @@
-HW5
+HW6
 ========
-1. 新增ReadonlyTask避免外部修改到原本的資料
-2. 將projectList、project、task分工更為詳細，避免進行其他層的操作
+1. 新增Repository
+2. 將usecase中的檔案重新以port方式分類
