@@ -5,7 +5,7 @@ using Tasks.Usecase;
 using Tasks.Usecase.Input;
 using Tasks.Usecase.Output;
 
-namespace Tasks.Controller.UsecaseController
+namespace Tasks.Adapter.UsecaseController
 {
     public class ShowController
     {

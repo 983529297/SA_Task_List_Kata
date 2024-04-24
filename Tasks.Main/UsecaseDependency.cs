@@ -2,29 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 using Tasks.Usecase;
-using Tasks.Usecase.Input;
-using Tasks.Usecase.Output;
+using Tasks.Adapter;
+using Tasks.Entity;
 
 namespace Tasks.Main
 {
-    public class UsecaseDependency
+    public class UsecaseDependency : IUsecaseDependency
     {
         public IDictionary<string, OperationBase> usecaseMap;
+        public IProjectListRepository projectListRepository;
+
         public UsecaseDependency()
         {
+            projectListRepository = new ProjectListRepository();
+            projectListRepository.Save(new ProjectListData());
+
             usecaseMap = new Dictionary<string, OperationBase>()
             {
-                {"show", new OperationShow() },
-                {"view", new OperationShow() },
-                {"add", new OperationAdd() },
-                {"check", new OperationDoCheck() },
-                {"uncheck", new OperationDoCheck() },
-                {"today", new OperationToday() },
+                {"show", new OperationShow(projectListRepository) },
+                {"add", new OperationAdd(projectListRepository) },
+                {"check", new OperationDoCheck(projectListRepository) },
+                {"uncheck", new OperationDoCheck(projectListRepository) },
                 {"help", new OperationHelp() },
-                {"deadline", new OperationDeadline() },
-                {"delete", new OperationDelete() },
                 {"error", new OperationError() }
             };
+        }
+
+        public IDictionary<string, OperationBase> GetUsecaseMap()
+        {
+            return usecaseMap;
+        }
+
+        public IProjectListRepository GetRepository()
+        {
+            return projectListRepository;
         }
     }
 }

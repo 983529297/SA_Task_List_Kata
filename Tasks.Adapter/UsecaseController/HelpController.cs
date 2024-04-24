@@ -5,7 +5,7 @@ using Tasks.Usecase.Output;
 using Tasks.Usecase;
 using Tasks.Usecase.Input;
 
-namespace Tasks.Controller.UsecaseController
+namespace Tasks.Adapter.UsecaseController
 {
     public class HelpController
     {

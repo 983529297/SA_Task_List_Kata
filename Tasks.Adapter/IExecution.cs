@@ -5,10 +5,10 @@ using Tasks.Usecase;
 using Tasks.Usecase.Input;
 using Tasks.Usecase.Output;
 
-namespace Tasks.Controller
+namespace Tasks.Adapter
 {
     public interface IExecution
     {
-        IList<string> Execute(IDictionary<string, OperationBase> usecaseMap, string commandLine);
+        IList<string> Execute(IUsecaseDependency usecaseDependency, string commandLine);
     }
 }

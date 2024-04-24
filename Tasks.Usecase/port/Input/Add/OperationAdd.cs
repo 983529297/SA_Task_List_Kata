@@ -9,6 +9,11 @@ namespace Tasks.Usecase
 {
 	public class OperationAdd : OperationBase, IOperation<VoidOutputDto, AddInputDto>
     {
+        public OperationAdd(IProjectListRepository projectListRepository)
+        {
+            this.projectListRepository = projectListRepository;
+        }
+
         public VoidOutputDto ExecuteOperation(AddInputDto addInputDto)
         {
             if (addInputDto.Mode == "project")
@@ -25,12 +30,12 @@ namespace Tasks.Usecase
 
 		private void AddProject(string name)
 		{
-			taskListData.AddProject(name);
+            projectListRepository.FindByID().AddProject(name);
 		}
 
 		private void AddTask(string project, string description)
 		{
-			taskListData.AddTask(project, description);
+            projectListRepository.FindByID().AddTask(project, description);
 		}
 	}
 }
